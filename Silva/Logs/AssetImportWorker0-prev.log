@@ -146,3 +146,27 @@ System memory in use after: 88.3 MB.
 Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 2270.
 Total: 3.485100 ms (FindLiveObjects: 0.255300 ms CreateObjectMapping: 0.083300 ms MarkObjects: 3.023400 ms  DeleteObjects: 0.121700 ms)
 
+========================================================================
+Received Import Request.
+  Time since last request: 968.840964 seconds.
+  path: Assets/Sprites/02_yoshi-120.png
+  artifactKey: Guid(aee0fed61e2072249b78abf4167c4695) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/02_yoshi-120.png using Guid(aee0fed61e2072249b78abf4167c4695) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53df356802e233de7256c0973f0c9f96') in 0.091237 seconds
+  Import took 0.098194 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 137.683676 seconds.
+  path: Assets/Sprites/exploded-sprite.png
+  artifactKey: Guid(0d4af68ad65801c45b2d0f879cc4962b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/exploded-sprite.png using Guid(0d4af68ad65801c45b2d0f879cc4962b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ced181d0f65bbd1a0b9c0d3a0162b785') in 0.042428 seconds
+  Import took 0.049013 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 147.337478 seconds.
+  path: Assets/Sprites/exploded-sprite.png
+  artifactKey: Guid(0d4af68ad65801c45b2d0f879cc4962b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/exploded-sprite.png using Guid(0d4af68ad65801c45b2d0f879cc4962b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '32eec5ac7128625fcfac8ce1c0404674') in 0.048531 seconds
+  Import took 0.054289 seconds .
+
