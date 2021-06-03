@@ -19,6 +19,7 @@ Logs/AssetImportWorker0.log
 Successfully changed project path to: C:/Users/monic/Desktop/MMP/mmp-abschlussprojekt/Silva
 C:/Users/monic/Desktop/MMP/mmp-abschlussprojekt/Silva
 Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 43.67 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.9f1 (108be757e447)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.9f1/Editor/Data/Resources/UnitySubsystems
