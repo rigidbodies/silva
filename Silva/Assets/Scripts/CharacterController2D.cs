@@ -18,6 +18,9 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] int score = 0;
     public Text scoreText;
 
+    private Vector3 initialPosition;
+    [SerializeField] float bottomBoundary = -5.0f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +31,7 @@ public class CharacterController2D : MonoBehaviour
         //scoreText = scoreObject.GetComponent<Text>();
         scoreText.text = "Score: " + score;
 
+        initialPosition = this.transform.position;
     }
 
     // Update is called once per frame
@@ -50,6 +54,11 @@ public class CharacterController2D : MonoBehaviour
             rigidB.AddForce(new Vector2(0, jumpForce));
         }
 
+        // If the player falls off he'll be repositioned at his initial position
+        if(this.transform.position.y < bottomBoundary)
+        {
+            this.transform.position = initialPosition;
+        }
 
         // If the player is looking opposite to the movement direction, the player image shoud be flipped
         if ((horizontalMove > 0 && !facingRight) || (horizontalMove < 0 && facingRight))
