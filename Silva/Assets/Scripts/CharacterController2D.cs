@@ -54,10 +54,20 @@ public class CharacterController2D : MonoBehaviour
             rigidB.AddForce(new Vector2(0, jumpForce));
         }
 
-        // If the player falls off he'll be repositioned at his initial position
+        // If the player falls off he'll start the level from scratch
         if(this.transform.position.y < bottomBoundary)
         {
+            //reposition player
             this.transform.position = initialPosition;
+
+            //make sure he starts off again facing right
+            if (!facingRight)
+            {
+                FlipPlayerImage();
+            }
+
+            //reset score
+            IncreaseScore(-score);
         }
 
         // If the player is looking opposite to the movement direction, the player image shoud be flipped
