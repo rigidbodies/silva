@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterController2D : MonoBehaviour
 
@@ -12,7 +13,10 @@ public class CharacterController2D : MonoBehaviour
     private bool isGrounded;                                        // Whether the player is on the gound and not jumping
     private bool facingRight = true;                                // Check if player is facing right
 
-    private Rigidbody2D rigidB;                                     
+    private Rigidbody2D rigidB;
+
+    [SerializeField] int score = 0;
+    public Text scoreText;
 
 
     // Start is called before the first frame update
@@ -20,6 +24,10 @@ public class CharacterController2D : MonoBehaviour
     {
         // Get RigidBody component of the player
         rigidB = GetComponent<Rigidbody2D>();
+        //GameObject scoreObject = GameObject.Find("Score");
+        //scoreText = scoreObject.GetComponent<Text>();
+        scoreText.text = "Score: " + score;
+
     }
 
     // Update is called once per frame
@@ -60,5 +68,12 @@ public class CharacterController2D : MonoBehaviour
         Vector3 playerScale = transform.localScale;
         playerScale.x *= -1;
         transform.localScale = playerScale;
+    }
+
+    // Increase score and set text to the new score value
+    public void IncreaseScore(int value)
+    {
+        score += value;
+        scoreText.text = "Score: " + score;
     }
 }
