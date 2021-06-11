@@ -12,6 +12,9 @@ public class CharacterController2D : MonoBehaviour
     float horizontalMove;                                           // Horizontal movement of the player
     private bool isGrounded;                                        // Whether the player is on the gound and not jumping
     private bool facingRight = true;                                // Check if player is facing right
+    [SerializeField] private float leftBoundary = -8.7f;            // Mimimum value of player x
+
+    public Animator animator;
 
     private Rigidbody2D rigidB;
 
@@ -41,8 +44,16 @@ public class CharacterController2D : MonoBehaviour
         // Get horizontal movement and multiply with movement speed
         horizontalMove = Input.GetAxisRaw("Horizontal") * movementSpeed;
 
-        // Transform actual horizontal position according to horizontal movement and time passed
-        transform.position += new Vector3(horizontalMove, 0, 0) * Time.deltaTime;
+        // Apply absolute value of horizontalMove to the movement speed parameter of the animator to start movement animation
+        animator.SetFloat("Movement Speed", Mathf.Abs(horizontalMove));
+
+
+        // The player can only move left if he is within the left screen boundaries
+        if(transform.position.x > leftBoundary || horizontalMove > 0)
+        {
+            // Transform actual horizontal position according to horizontal movement and time passed
+            transform.position += new Vector3(horizontalMove, 0, 0) * Time.deltaTime;
+        }
 
         // If there is no velocity on the y-axis, the player is not jumping
         isGrounded = Mathf.Abs(rigidB.velocity.y) < 0.001f;
