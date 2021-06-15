@@ -68,17 +68,7 @@ public class CharacterController2D : MonoBehaviour
         // If the player falls off he'll start the level from scratch
         if(this.transform.position.y < bottomBoundary)
         {
-            //reposition player
-            this.transform.position = initialPosition;
-
-            //make sure he starts off again facing right
-            if (!facingRight)
-            {
-                FlipPlayerImage();
-            }
-
-            //reset score
-            IncreaseScore(-score);
+            Restart();
         }
 
         // If the player is looking opposite to the movement direction, the player image shoud be flipped
@@ -98,6 +88,39 @@ public class CharacterController2D : MonoBehaviour
         Vector3 playerScale = transform.localScale;
         playerScale.x *= -1;
         transform.localScale = playerScale;
+    }
+
+    private void Restart()
+    {
+        //reposition player
+        this.transform.position = initialPosition;
+
+        //make sure he starts off again facing right
+        if (!facingRight)
+        {
+            FlipPlayerImage();
+        }
+
+        //reset score
+        IncreaseScore(-score);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Make Silva move with MovingPlatform while on it
+        if(collision.transform.tag == "MovingPlatform")
+        {
+            transform.parent = collision.transform;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        // Make Silva move on his own when leaving MovingPlatform
+        if(collision.transform.tag == "MovingPlatform")
+        {
+            transform.parent = null;
+        }
     }
 
     // Increase score and set text to the new score value
