@@ -249,3 +249,27 @@ Received Import Request.
 Start importing Assets/Sprites/Kristal_lila.PNG using Guid(1690dd270bc4144479999f05c4daad10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71f17c1007865d89e81055d055cdec14') in 0.010431 seconds
   Import took 0.014346 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 66.048229 seconds.
+  path: Assets/Sprites/Ground
+  artifactKey: Guid(9e1229de8609b7d4e871a40972ddff54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Ground using Guid(9e1229de8609b7d4e871a40972ddff54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c1cdca9b3bc5102ddde821e3d286e71') in 0.002197 seconds
+  Import took 0.007670 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.043728 seconds.
+  path: Assets/Sprites/Ground/Deckenbegrenzung.PNG
+  artifactKey: Guid(e6073f69e8cf149fc9672424d4896807) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Ground/Deckenbegrenzung.PNG using Guid(e6073f69e8cf149fc9672424d4896807) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28548f2065f34b8e9a012bdc5dd7d69d') in 0.052767 seconds
+  Import took 0.056936 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.004159 seconds.
+  path: Assets/Sprites/Ground/Deckenbegrenzung.PNG
+  artifactKey: Guid(e6073f69e8cf149fc9672424d4896807) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Ground/Deckenbegrenzung.PNG using Guid(e6073f69e8cf149fc9672424d4896807) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28548f2065f34b8e9a012bdc5dd7d69d') in 0.012907 seconds
+  Import took 0.016365 seconds .
+
