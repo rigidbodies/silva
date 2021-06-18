@@ -1,50 +1,251 @@
 Using pre-set license
-Built from '2020.3/staging' branch; Version is '2020.3.9f1 (108be757e447) revision 1084391'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Home; OS build 19042.1052; Version 2009; 64bit' Language: 'de' Physical Memory: 16267 MB
-BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
  COMMAND LINE ARGUMENTS:
-C:\Program Files\Unity\Hub\Editor\2020.3.9f1\Editor\Unity.exe
+/Applications/Unity/Unity.app/Contents/MacOS/Unity
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/Katja/Documents/Uni/Bachelor Informatik/Module/P17 Multimediaprogrammierung/Abschlussprojekt/mmp-abschlussprojekt/Silva
+/Users/nataliiadaliba/Documents/GitHub/mmp-abschlussprojekt/Silva
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-49749
-Successfully changed project path to: C:/Users/Katja/Documents/Uni/Bachelor Informatik/Module/P17 Multimediaprogrammierung/Abschlussprojekt/mmp-abschlussprojekt/Silva
-C:/Users/Katja/Documents/Uni/Bachelor Informatik/Module/P17 Multimediaprogrammierung/Abschlussprojekt/mmp-abschlussprojekt/Silva
+57215
+Successfully changed project path to: /Users/nataliiadaliba/Documents/GitHub/mmp-abschlussprojekt/Silva
+/Users/nataliiadaliba/Documents/GitHub/mmp-abschlussprojekt/Silva
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 188.54 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 59.46 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.9f1 (108be757e447)
-[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.9f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/Katja/Documents/Uni/Bachelor Informatik/Module/P17 Multimediaprogrammierung/Abschlussprojekt/mmp-abschlussprojekt/Silva/Assets
+[Subsystems] Discovering subsystems at path /Applications/Unity/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/nataliiadaliba/Documents/GitHub/mmp-abschlussprojekt/Silva/Assets
 GfxDevice: creating device client; threaded=0
-Direct3D:
-    Version:  Direct3D 11.0 [level 11.1]
-    Renderer: Intel(R) HD Graphics 520 (ID=0x1916)
-    Vendor:   
-    VRAM:     8133 MB
-    Driver:   26.20.100.7812
+2021-06-19 01:31:09.243 Unity[2588:248256] Color LCD preferred device: Intel(R) Iris(TM) Plus Graphics 655 (low power)
+2021-06-19 01:31:09.243 Unity[2588:248256] Metal devices available: 1
+2021-06-19 01:31:09.243 Unity[2588:248256] 0: Intel(R) Iris(TM) Plus Graphics 655 (low power)
+2021-06-19 01:31:09.244 Unity[2588:248256] Using device Intel(R) Iris(TM) Plus Graphics 655 (low power)
+Initializing Metal device caps: Intel(R) Iris(TM) Plus Graphics 655
 Initialize mono
-Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.9f1/Editor/Data/Managed'
-Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
-Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.9f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56144
+Mono path[0] = '/Applications/Unity/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = '/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56588
 Begin MonoManager ReloadAssembly
+Error scanning for extension ivy.xml files: System.UnauthorizedAccessException: Access to the path '/Applications/Unity/PlaybackEngines/WebGLSupport/BuildTools/Emscripten_Mac/node' is denied.
+  at System.IO.__Error.WinIOError (System.Int32 errorCode, System.String maybeFullPath) [0x00129] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at System.IO.FileSystemEnumerableIterator`1[TSource].HandleError (System.Int32 hr, System.String path) [0x00006] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at System.IO.FileSystemEnumerableIterator`1[TSource].AddSearchableDirsToStack (System.IO.Directory+SearchData localSearchData) [0x00053] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at System.IO.FileSystemEnumerableIterator`1[TSource].MoveNext () [0x0008e] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at System.Collections.Generic.List`1[T]..ctor (System.Collections.Generic.IEnumerable`1[T] collection) [0x00077] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at System.IO.Directory.InternalGetFileDirectoryNames (System.String path, System.String userPathOriginal, System.String searchPattern, System.Boolean includeFiles, System.Boolean includeDirs, System.IO.SearchOption searchOption, System.Boolean checkHost) [0x0000f] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at System.IO.Directory.InternalGetFiles (System.String path, System.String searchPattern, System.IO.SearchOption searchOption) [0x00000] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at System.IO.Directory.GetFiles (System.String path, System.String searchPattern, System.IO.SearchOption searchOption) [0x00038] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at UnityEditor.Modules.ModuleManager.LoadLegacyExtensionsFromIvyFiles () [0x000a5] in /Users/bokken/buildslave/unity/build/Editor/Mono/Modules/ModuleManager.cs:253 
 Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.078557 seconds.
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 630.75 ms, found 1 plugins.
+Register platform support module: /Applications/Unity/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: /Applications/Unity/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Registered in 0.006295 seconds.
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 43.19 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in 21.945 seconds
+- Completed reload, in  2.268 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.137842 seconds.
+Registered in 0.002030 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 36.32 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.176 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launching external process: /Applications/Unity/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.01 seconds
+Refreshing native plugins compatible for Editor in 0.47 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1822 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 144.1 MB.
+System memory in use after: 144.1 MB.
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 2270.
+Total: 2.505124 ms (FindLiveObjects: 0.247773 ms CreateObjectMapping: 0.075512 ms MarkObjects: 2.098013 ms  DeleteObjects: 0.082642 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Sprites/crystal.JPG
+  artifactKey: Guid(bfe99f7ab8b92fd4c893ae97102acb77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/crystal.JPG using Guid(bfe99f7ab8b92fd4c893ae97102acb77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9bdeb717264ac7a18bff0640ef9d2a25') in 1.230284 seconds
+  Import took 1.234760 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 38.569639 seconds.
+  path: Assets/Prefabs/Book (blue).prefab
+  artifactKey: Guid(96b01807936c7104da16a0b3dcbb9945) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Book (blue).prefab using Guid(96b01807936c7104da16a0b3dcbb9945) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d15f91caf4f7a18824205e3d081d1b4') in 1.401599 seconds
+  Import took 1.410849 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000242 seconds.
+  path: Assets/Prefabs/MovingPlatform.prefab
+  artifactKey: Guid(a54888d91ec4a35459f941163a079838) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/MovingPlatform.prefab using Guid(a54888d91ec4a35459f941163a079838) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31a9d10cfeb38aceb7bfb8a1227184b7') in 0.026578 seconds
+  Import took 0.031787 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000246 seconds.
+  path: Assets/Prefabs/Book (green).prefab
+  artifactKey: Guid(b1b95c7583b4c4c47b3e644b67e5a441) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Book (green).prefab using Guid(b1b95c7583b4c4c47b3e644b67e5a441) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '16854c82d25a675d3a231e275d950a0a') in 0.057327 seconds
+  Import took 0.062286 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000278 seconds.
+  path: Assets/Prefabs/Crystal.prefab
+  artifactKey: Guid(0f9e8bc6c39fda94d9f8ae66347ece1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Crystal.prefab using Guid(0f9e8bc6c39fda94d9f8ae66347ece1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ef77b4e8d6882179ea0887b17424f01') in 0.013007 seconds
+  Import took 0.018648 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.810963 seconds.
+  path: Assets/Sprites/Background
+  artifactKey: Guid(efca6ce98c5a88444ad83cc8d89ea654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Background using Guid(efca6ce98c5a88444ad83cc8d89ea654) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd025377078828decc20a9548a3af0496') in 0.001673 seconds
+  Import took 0.010304 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.058661 seconds.
+  path: Assets/Sprites/Background/Hintergrund_Level-1.jpeg
+  artifactKey: Guid(6cc4200875e132744b52a18122d27833) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Background/Hintergrund_Level-1.jpeg using Guid(6cc4200875e132744b52a18122d27833) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1cc773d37db65f62d44726fe52c67869') in 1.123827 seconds
+  Import took 1.127976 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000216 seconds.
+  path: Assets/Sprites/Background/Hintergrund_Level-2.JPG
+  artifactKey: Guid(cdb49bb36e7129e48bfc85c2a52a4f33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Background/Hintergrund_Level-2.JPG using Guid(cdb49bb36e7129e48bfc85c2a52a4f33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48c6369b730f98dab20b4bed43675559') in 0.039618 seconds
+  Import took 0.043958 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.615161 seconds.
+  path: Assets/Sprites/Ground/ground3.png
+  artifactKey: Guid(81331ce37d699ba4ca6788eb96bb6a96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Ground/ground3.png using Guid(81331ce37d699ba4ca6788eb96bb6a96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb6e81591b48313b791111e258b0477c') in 1.142996 seconds
+  Import took 1.148958 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 46.689935 seconds.
+  path: Assets/Sprites/Books/book.PNG
+  artifactKey: Guid(641f5de2fb96b41619c866ccc918a1ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Books/book.PNG using Guid(641f5de2fb96b41619c866ccc918a1ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e71388399476f82cb232983a26f8debf') in 1.031856 seconds
+  Import took 1.037910 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000254 seconds.
+  path: Assets/Sprites/Books/Unbenanntes_Projekt 54.png
+  artifactKey: Guid(98603f33fd1186349b67f05c16e5c5a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Books/Unbenanntes_Projekt 54.png using Guid(98603f33fd1186349b67f05c16e5c5a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ad11be08b0fefd8720ed291c63fe1cf') in 0.032303 seconds
+  Import took 0.035930 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.190023 seconds.
+  path: Assets/Sprites/Ground/Tiles
+  artifactKey: Guid(d19a403d2540466468c3f041e134fdf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Ground/Tiles using Guid(d19a403d2540466468c3f041e134fdf3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f64fc53a55e4abe0c3a821907d937eb9') in 0.002174 seconds
+  Import took 0.009695 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001931 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.51 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.331 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.41 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1812 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 168.6 MB.
+System memory in use after: 168.8 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2290.
+Total: 2.812677 ms (FindLiveObjects: 0.393698 ms CreateObjectMapping: 0.111288 ms MarkObjects: 2.237005 ms  DeleteObjects: 0.068830 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 57.065965 seconds.
+  path: Assets/Prefabs/Kristal_bunt.PNG
+  artifactKey: Guid(6d1f3a3855d354b14a7f2845112c965a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Kristal_bunt.PNG using Guid(6d1f3a3855d354b14a7f2845112c965a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66e7544acd0021c9abe673004bc03887') in 0.078836 seconds
+  Import took 0.082900 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000476 seconds.
+  path: Assets/Prefabs/Kristal_lila.PNG
+  artifactKey: Guid(ae06f0882f525409db81a4e6511a851c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Kristal_lila.PNG using Guid(ae06f0882f525409db81a4e6511a851c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c744581e186838f770a658d73d6a1534') in 0.011740 seconds
+  Import took 0.015296 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000265 seconds.
+  path: Assets/Prefabs/Kristal_blue.PNG
+  artifactKey: Guid(3e186a525daee450e94a71663e8334b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Kristal_blue.PNG using Guid(3e186a525daee450e94a71663e8334b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '010038aa8ec49edd152947b2221ca03e') in 0.013370 seconds
+  Import took 0.017887 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 41.908408 seconds.
+  path: Assets/Sprites/Kristal_blue.PNG
+  artifactKey: Guid(29180bb8cafb3425b8a9b4e9a904418b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Kristal_blue.PNG using Guid(29180bb8cafb3425b8a9b4e9a904418b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '764601ce3611ccef09b79e596a6c14dd') in 0.022307 seconds
+  Import took 0.026061 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000482 seconds.
+  path: Assets/Sprites/Kristal_bunt.PNG
+  artifactKey: Guid(21a8d53d6d3c948298d19d6379509e8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Kristal_bunt.PNG using Guid(21a8d53d6d3c948298d19d6379509e8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe8f45b9cf363370be90ae3c56891776') in 0.015337 seconds
+  Import took 0.021837 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000228 seconds.
+  path: Assets/Sprites/Kristal_blue.PNG
+  artifactKey: Guid(29180bb8cafb3425b8a9b4e9a904418b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Kristal_blue.PNG using Guid(29180bb8cafb3425b8a9b4e9a904418b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '764601ce3611ccef09b79e596a6c14dd') in 0.009562 seconds
+  Import took 0.012622 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/Sprites/Kristal_lila.PNG
+  artifactKey: Guid(1690dd270bc4144479999f05c4daad10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Kristal_lila.PNG using Guid(1690dd270bc4144479999f05c4daad10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71f17c1007865d89e81055d055cdec14') in 0.010431 seconds
+  Import took 0.014346 seconds .
+
