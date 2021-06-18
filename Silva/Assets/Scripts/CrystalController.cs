@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CrystalController : MonoBehaviour
 {
-    [SerializeField] private float speed = 5.0f;
+    [SerializeField] private float speed = 10.0f;
     private Rigidbody2D rigidBody;
     private SpriteRenderer render;
     private float screenHeight;
@@ -13,7 +13,7 @@ public class CrystalController : MonoBehaviour
     void Start()
     {
         rigidBody = transform.GetComponent<Rigidbody2D>();
-        render = transform.GetComponent<SpriteRenderer>();
+        render = GetComponent<SpriteRenderer>();
         rigidBody.velocity = new Vector2(0, -speed);
         screenHeight = Camera.main.orthographicSize;
     }
@@ -29,16 +29,21 @@ public class CrystalController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.transform.tag == "Ground")
-        {
-            StartCoroutine(FadeOut());
-        }
+        StartCoroutine(FadeOut());
     }
 
     IEnumerator FadeOut()
     {
-        //TODO
-        yield return new WaitForSeconds(0.05f);
+        //let crystal fade out
+        for(float f = 1; f >= 0.0; f -= 0.05f)
+        {
+            Color c = render.material.color;
+            c.a = f;
+            render.material.color = c;
+            yield return new WaitForSeconds(0.02f);
+        }
+
+        //destroy crystal
         Destroy(this.gameObject);
     }
 }

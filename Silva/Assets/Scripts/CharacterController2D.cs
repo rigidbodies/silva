@@ -17,6 +17,7 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] Animator animator;
 
     private Rigidbody2D rigidB;
+    private SpriteRenderer render;
 
     [SerializeField] int score = 0;
     [SerializeField] Text scoreText;
@@ -30,6 +31,7 @@ public class CharacterController2D : MonoBehaviour
     {
         // Get RigidBody component of the player
         rigidB = GetComponent<Rigidbody2D>();
+        render = GetComponent<SpriteRenderer>();
         scoreText.text = "Score: " + score;
         initialPosition = this.transform.position;
     }
@@ -103,7 +105,7 @@ public class CharacterController2D : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Make Silva move with MovingPlatform while on it
+        // Make player move with MovingPlatform while on it
         if(collision.transform.tag == "MovingPlatform")
         {
             transform.parent = collision.transform;
@@ -116,17 +118,16 @@ public class CharacterController2D : MonoBehaviour
             animator.SetBool("IsJumping", false);
         }
 
-        // Restart if Silva is hit by a crystal
+        // Restart if player is hit by a crystal
         if(collision.transform.tag == "Crystal")
         {
-            StartCoroutine(DelayRestart(0.5f));
-            
+            StartCoroutine(Blink(8));            
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        // Make Silva move on his own when leaving MovingPlatform
+        // Make player move on his own when leaving MovingPlatform
         if (collision.transform.tag == "MovingPlatform")
         {
             transform.parent = null;  
@@ -147,9 +148,22 @@ public class CharacterController2D : MonoBehaviour
         scoreText.text = "Score: " + score;
     }
 
-    IEnumerator DelayRestart(float waitingTime)
+    IEnumerator Blink(int reps)
     {
-        yield return new WaitForSeconds(waitingTime);
+        // Make player blink
+        for(int i = 0; i<reps; i++)
+        {
+            Color c = render.material.color;
+            c.a = 0.1f;
+            render.material.color = c;
+            yield return new WaitForSeconds(0.02f);
+            c.a = 1.0f;
+            render.material.color = c;
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        // Let player restart
         Restart();
     }
 }
