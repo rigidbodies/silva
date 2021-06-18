@@ -115,6 +115,13 @@ public class CharacterController2D : MonoBehaviour
             isGrounded = true;
             animator.SetBool("IsJumping", false);
         }
+
+        // Restart if Silva is hit by a crystal
+        if(collision.transform.tag == "Crystal")
+        {
+            StartCoroutine(DelayRestart(0.5f));
+            
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -138,5 +145,11 @@ public class CharacterController2D : MonoBehaviour
     {
         score += value;
         scoreText.text = "Score: " + score;
+    }
+
+    IEnumerator DelayRestart(float waitingTime)
+    {
+        yield return new WaitForSeconds(waitingTime);
+        Restart();
     }
 }
