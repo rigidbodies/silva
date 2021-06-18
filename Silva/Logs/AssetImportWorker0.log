@@ -273,3 +273,19 @@ Received Import Request.
 Start importing Assets/Sprites/Ground/Deckenbegrenzung.PNG using Guid(e6073f69e8cf149fc9672424d4896807) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28548f2065f34b8e9a012bdc5dd7d69d') in 0.012907 seconds
   Import took 0.016365 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 306.828785 seconds.
+  path: Assets/Sprites/Ground/Tiles/ground1_new.png
+  artifactKey: Guid(9f15006858e0b4a82834db80724817d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Ground/Tiles/ground1_new.png using Guid(9f15006858e0b4a82834db80724817d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a6a87e1f7fa92f82b153096eb65ce97e') in 0.041468 seconds
+  Import took 0.048244 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000250 seconds.
+  path: Assets/Sprites/Ground/Tiles/ground3_new.png
+  artifactKey: Guid(61ad362ab8c0142c8b7b0597cfebf966) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Ground/Tiles/ground3_new.png using Guid(61ad362ab8c0142c8b7b0597cfebf966) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a6b1d514fc5685c58c46138b9041b03') in 0.018151 seconds
+  Import took 0.021778 seconds .
+
