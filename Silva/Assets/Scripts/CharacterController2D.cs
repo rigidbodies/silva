@@ -14,12 +14,12 @@ public class CharacterController2D : MonoBehaviour
     private bool facingRight = true;                                // Check if player is facing right
     [SerializeField] private float leftBoundary = -8.7f;            // Mimimum value of player x
 
-    public Animator animator;
+    [SerializeField] Animator animator;
 
     private Rigidbody2D rigidB;
 
     [SerializeField] int score = 0;
-    public Text scoreText;
+    [SerializeField] Text scoreText;
 
     private Vector3 initialPosition;
     [SerializeField] float bottomBoundary = -5.0f;
@@ -30,10 +30,7 @@ public class CharacterController2D : MonoBehaviour
     {
         // Get RigidBody component of the player
         rigidB = GetComponent<Rigidbody2D>();
-        //GameObject scoreObject = GameObject.Find("Score");
-        //scoreText = scoreObject.GetComponent<Text>();
         scoreText.text = "Score: " + score;
-
         initialPosition = this.transform.position;
     }
 
@@ -55,14 +52,13 @@ public class CharacterController2D : MonoBehaviour
             transform.position += new Vector3(horizontalMove, 0, 0) * Time.deltaTime;
         }
 
-        // If there is no velocity on the y-axis, the player is not jumping
-        isGrounded = Mathf.Abs(rigidB.velocity.y) < 0.001f;
-
         // The player cannot jump multiple times while he is still jumping
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
-            // Add vertival force to player if he should jump
+            // Add vertical force to player if he should jump
             rigidB.AddForce(new Vector2(0, jumpForce));
+            // Set animator parameter to true, so that the jump animation can start
+            animator.SetBool("IsJumping", true);
         }
 
         // If the player falls off he'll start the level from scratch
@@ -112,16 +108,30 @@ public class CharacterController2D : MonoBehaviour
         {
             transform.parent = collision.transform;
         }
+
+        // Interrupt jump animation if Player lands before the animation has finished and set variables accordingly
+        if (collision.gameObject.tag == "Ground" || collision.transform.tag == "MovingPlatform")
+        {
+            isGrounded = true;
+            animator.SetBool("IsJumping", false);
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         // Make Silva move on his own when leaving MovingPlatform
-        if(collision.transform.tag == "MovingPlatform")
+        if (collision.transform.tag == "MovingPlatform")
         {
-            transform.parent = null;
+            transform.parent = null;  
+        }
+
+        // The player is not grounded anymore if there is no collision with the ground
+        if (collision.gameObject.tag == "Ground" || collision.transform.tag == "MovingPlatform")
+        {
+            isGrounded = false;
         }
     }
+
 
     // Increase score and set text to the new score value
     public void IncreaseScore(int value)
