@@ -189,7 +189,7 @@ PrefabInstance:
     - target: {fileID: 495030384220268063, guid: 5cac076b085ec0e48b517da4ca82f1a1, type: 3}
       propertyPath: crystalPrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 5477695436395328283, guid: 0b549f9c53e41d34f831ada364888028, type: 3}
+      objectReference: {fileID: 2185800967350473680, guid: ad054d2bf6537d746b1860aebf1baee8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cac076b085ec0e48b517da4ca82f1a1, type: 3}
 --- !u!4 &13030195 stripped
@@ -1002,7 +1002,7 @@ PrefabInstance:
     - target: {fileID: 495030384220268063, guid: 5cac076b085ec0e48b517da4ca82f1a1, type: 3}
       propertyPath: crystalPrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 5477695436395328283, guid: 0b549f9c53e41d34f831ada364888028, type: 3}
+      objectReference: {fileID: 2185800967350473680, guid: ad054d2bf6537d746b1860aebf1baee8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cac076b085ec0e48b517da4ca82f1a1, type: 3}
 --- !u!1001 &248480445
@@ -1193,7 +1193,7 @@ PrefabInstance:
     - target: {fileID: 495030384220268063, guid: 5cac076b085ec0e48b517da4ca82f1a1, type: 3}
       propertyPath: crystalPrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 5477695436395328283, guid: 0b549f9c53e41d34f831ada364888028, type: 3}
+      objectReference: {fileID: 2185800967350473680, guid: ad054d2bf6537d746b1860aebf1baee8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cac076b085ec0e48b517da4ca82f1a1, type: 3}
 --- !u!1001 &333937873
@@ -1589,7 +1589,7 @@ PrefabInstance:
     - target: {fileID: 495030384220268063, guid: 5cac076b085ec0e48b517da4ca82f1a1, type: 3}
       propertyPath: crystalPrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 5477695436395328283, guid: 0b549f9c53e41d34f831ada364888028, type: 3}
+      objectReference: {fileID: 2185800967350473680, guid: ad054d2bf6537d746b1860aebf1baee8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cac076b085ec0e48b517da4ca82f1a1, type: 3}
 --- !u!1001 &471581795
@@ -1969,7 +1969,7 @@ PrefabInstance:
     - target: {fileID: 495030384220268063, guid: 5cac076b085ec0e48b517da4ca82f1a1, type: 3}
       propertyPath: crystalPrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 5477695436395328283, guid: 0b549f9c53e41d34f831ada364888028, type: 3}
+      objectReference: {fileID: 2185800967350473680, guid: ad054d2bf6537d746b1860aebf1baee8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cac076b085ec0e48b517da4ca82f1a1, type: 3}
 --- !u!1 &519420028
@@ -2970,7 +2970,7 @@ PrefabInstance:
     - target: {fileID: 495030384220268063, guid: 5cac076b085ec0e48b517da4ca82f1a1, type: 3}
       propertyPath: crystalPrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 5477695436395328283, guid: 0b549f9c53e41d34f831ada364888028, type: 3}
+      objectReference: {fileID: 2185800967350473680, guid: ad054d2bf6537d746b1860aebf1baee8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cac076b085ec0e48b517da4ca82f1a1, type: 3}
 --- !u!1001 &885354119
@@ -3039,7 +3039,7 @@ PrefabInstance:
     - target: {fileID: 495030384220268063, guid: 5cac076b085ec0e48b517da4ca82f1a1, type: 3}
       propertyPath: crystalPrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 5477695436395328283, guid: 0b549f9c53e41d34f831ada364888028, type: 3}
+      objectReference: {fileID: 2185800967350473680, guid: ad054d2bf6537d746b1860aebf1baee8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cac076b085ec0e48b517da4ca82f1a1, type: 3}
 --- !u!4 &927364821 stripped
@@ -3702,7 +3702,7 @@ PrefabInstance:
     - target: {fileID: 495030384220268063, guid: 5cac076b085ec0e48b517da4ca82f1a1, type: 3}
       propertyPath: crystalPrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 5477695436395328283, guid: 0b549f9c53e41d34f831ada364888028, type: 3}
+      objectReference: {fileID: 2185800967350473680, guid: ad054d2bf6537d746b1860aebf1baee8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cac076b085ec0e48b517da4ca82f1a1, type: 3}
 --- !u!1001 &941325036
@@ -4610,7 +4610,7 @@ PrefabInstance:
     - target: {fileID: 495030384220268063, guid: 5cac076b085ec0e48b517da4ca82f1a1, type: 3}
       propertyPath: crystalPrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 5477695436395328283, guid: 0b549f9c53e41d34f831ada364888028, type: 3}
+      objectReference: {fileID: 2185800967350473680, guid: ad054d2bf6537d746b1860aebf1baee8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cac076b085ec0e48b517da4ca82f1a1, type: 3}
 --- !u!1 &1425814810
@@ -4870,7 +4870,7 @@ PrefabInstance:
     - target: {fileID: 495030384220268063, guid: 5cac076b085ec0e48b517da4ca82f1a1, type: 3}
       propertyPath: crystalPrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 5477695436395328283, guid: 0b549f9c53e41d34f831ada364888028, type: 3}
+      objectReference: {fileID: 2185800967350473680, guid: ad054d2bf6537d746b1860aebf1baee8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cac076b085ec0e48b517da4ca82f1a1, type: 3}
 --- !u!4 &1524980945 stripped
@@ -5722,7 +5722,7 @@ PrefabInstance:
     - target: {fileID: 495030384220268063, guid: 5cac076b085ec0e48b517da4ca82f1a1, type: 3}
       propertyPath: crystalPrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 5477695436395328283, guid: 0b549f9c53e41d34f831ada364888028, type: 3}
+      objectReference: {fileID: 2185800967350473680, guid: ad054d2bf6537d746b1860aebf1baee8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cac076b085ec0e48b517da4ca82f1a1, type: 3}
 --- !u!1001 &1939607422
@@ -6121,7 +6121,7 @@ PrefabInstance:
     - target: {fileID: 495030384220268063, guid: 5cac076b085ec0e48b517da4ca82f1a1, type: 3}
       propertyPath: crystalPrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 5477695436395328283, guid: 0b549f9c53e41d34f831ada364888028, type: 3}
+      objectReference: {fileID: 2185800967350473680, guid: ad054d2bf6537d746b1860aebf1baee8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cac076b085ec0e48b517da4ca82f1a1, type: 3}
 --- !u!1001 &1213131713449898908
