@@ -77,4 +77,6 @@ MonoBehaviour:
   spawnPosition: {fileID: 495030382148138403}
   crystalPrefabs:
   - {fileID: 8770046777991054066, guid: 0f9e8bc6c39fda94d9f8ae66347ece1d, type: 3}
+  - {fileID: 1739529157594290742, guid: 35d9005f55bb6ff4c8e10126020f656c, type: 3}
+  - {fileID: 5477695436395328283, guid: 0b549f9c53e41d34f831ada364888028, type: 3}
   spawnTime: 3
