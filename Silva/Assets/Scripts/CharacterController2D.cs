@@ -12,7 +12,8 @@ public class CharacterController2D : MonoBehaviour
     float horizontalMove;                                           // Horizontal movement of the player
     private bool isGrounded;                                        // Whether the player is on the gound and not jumping
     private bool facingRight = true;                                // Check if player is facing right
-    [SerializeField] private float leftBoundary = -8.7f;            // Mimimum value of player x
+    [SerializeField] float leftBoundary = -8.7f;                    // Mimimum value of player x
+    [SerializeField] float rightBoundary = 298f;                   // Maximum value of player x
 
     [SerializeField] Animator animator;
 
@@ -47,8 +48,9 @@ public class CharacterController2D : MonoBehaviour
         animator.SetFloat("Movement Speed", Mathf.Abs(horizontalMove));
 
 
-        // The player can only move left if he is within the left screen boundaries
-        if(transform.position.x > leftBoundary || horizontalMove > 0)
+        // The player can only move if he is within the level boundaries
+        if((transform.position.x > leftBoundary || horizontalMove > 0) 
+            && (transform.position.x < rightBoundary || horizontalMove < 0))
         {
             // Transform actual horizontal position according to horizontal movement and time passed
             transform.position += new Vector3(horizontalMove, 0, 0) * Time.deltaTime;
@@ -112,7 +114,7 @@ public class CharacterController2D : MonoBehaviour
         }
 
         // Interrupt jump animation if Player lands before the animation has finished and set variables accordingly
-        if (collision.gameObject.tag == "Ground" || collision.transform.tag == "MovingPlatform")
+        if (collision.gameObject.tag == "Ground" || collision.transform.tag == "MovingPlatform" || collision.gameObject.tag == "Ceiling")
         {
             isGrounded = true;
             animator.SetBool("IsJumping", false);
@@ -134,7 +136,7 @@ public class CharacterController2D : MonoBehaviour
         }
 
         // The player is not grounded anymore if there is no collision with the ground
-        if (collision.gameObject.tag == "Ground" || collision.transform.tag == "MovingPlatform")
+        if (collision.gameObject.tag == "Ground" || collision.transform.tag == "MovingPlatform" || collision.gameObject.tag == "Ceiling")
         {
             isGrounded = false;
         }

@@ -7,6 +7,7 @@ TagManager:
   - MovingPlatform
   - Ground
   - Crystal
+  - Ceiling
   layers:
   - Default
   - TransparentFX
