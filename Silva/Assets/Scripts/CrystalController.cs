@@ -29,7 +29,10 @@ public class CrystalController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        StartCoroutine(FadeOut());
+        if(collision.transform.tag == "Ground" || collision.transform.tag == "Player" || collision.transform.tag == "MovingPlatform")
+        {
+            StartCoroutine(FadeOut());
+        }
     }
 
     IEnumerator FadeOut()
