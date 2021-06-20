@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Crystal
   - Ceiling
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

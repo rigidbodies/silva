@@ -13,7 +13,7 @@ public class CharacterController2D : MonoBehaviour
     private bool isGrounded;                                        // Whether the player is on the gound and not jumping
     private bool facingRight = true;                                // Check if player is facing right
     [SerializeField] float leftBoundary = -8.7f;                    // Mimimum value of player x
-    [SerializeField] float rightBoundary = 298f;                   // Maximum value of player x
+    [SerializeField] float rightBoundary = 298f;                    // Maximum value of player x
 
     [SerializeField] Animator animator;
 
@@ -23,7 +23,7 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] int score = 0;
     [SerializeField] Text scoreText;
 
-    private Vector3 initialPosition;
+    [SerializeField] Vector3 respawnPosition;
     [SerializeField] float bottomBoundary = -5.0f;
 
 
@@ -34,7 +34,7 @@ public class CharacterController2D : MonoBehaviour
         rigidB = GetComponent<Rigidbody2D>();
         render = GetComponent<SpriteRenderer>();
         scoreText.text = "Score: " + score;
-        initialPosition = this.transform.position;
+        respawnPosition = this.transform.position;
     }
 
     // Update is called once per frame
@@ -93,7 +93,7 @@ public class CharacterController2D : MonoBehaviour
     private void Restart()
     {
         //reposition player
-        this.transform.position = initialPosition;
+        this.transform.position = respawnPosition;
 
         //make sure he starts off again facing right
         if (!facingRight)
@@ -139,6 +139,15 @@ public class CharacterController2D : MonoBehaviour
         if (collision.gameObject.tag == "Ground" || collision.transform.tag == "MovingPlatform" || collision.gameObject.tag == "Ceiling")
         {
             isGrounded = false;
+        }
+    }
+
+    // Sets the respawn position to the position of the checkpoint colliding with the player
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Checkpoint")
+        {
+            respawnPosition = collision.transform.position;
         }
     }
 
