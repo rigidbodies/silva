@@ -7,6 +7,7 @@ public class CrystalController : MonoBehaviour
     [SerializeField] private float speed = 10.0f;
     private Rigidbody2D rigidBody;
     private SpriteRenderer render;
+    private AudioSource shatteringCrystals;
     private float screenHeight;
 
     // Start is called before the first frame update
@@ -14,6 +15,7 @@ public class CrystalController : MonoBehaviour
     {
         rigidBody = transform.GetComponent<Rigidbody2D>();
         render = GetComponent<SpriteRenderer>();
+        shatteringCrystals = GetComponent<AudioSource>();
         rigidBody.velocity = new Vector2(0, -speed);
         screenHeight = Camera.main.orthographicSize;
     }
@@ -31,6 +33,10 @@ public class CrystalController : MonoBehaviour
     {
         if(collision.transform.tag == "Ground" || collision.transform.tag == "Player" || collision.transform.tag == "MovingPlatform")
         {
+            if (!shatteringCrystals.isPlaying)
+            {
+                shatteringCrystals.Play();
+            }
             StartCoroutine(FadeOut());
         }
     }
