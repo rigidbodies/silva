@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CharacterController2D : MonoBehaviour
 
@@ -27,6 +28,8 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] Vector3 respawnPosition;
     [SerializeField] float bottomBoundary = -5.0f;
 
+    private LivesController hearts;
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +40,7 @@ public class CharacterController2D : MonoBehaviour
         playerSound = GetComponent<AudioSource>();
         scoreText.text = "Score: " + score;
         respawnPosition = this.transform.position;
+        hearts = FindObjectOfType<LivesController>();
     }
 
     // Update is called once per frame
@@ -102,6 +106,15 @@ public class CharacterController2D : MonoBehaviour
         }
         END TODO*/
 
+        // if the restart method is called it means that the player has lost a life
+        hearts.Lose1Life();
+
+        // if no life is left the scene is reloaded so that all values (score, lives, collected booksm checkpoints) are resetted
+        if (hearts.Lives == 0)
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
+
         //reposition player
         this.transform.position = respawnPosition;
 
@@ -110,9 +123,6 @@ public class CharacterController2D : MonoBehaviour
         {
             FlipPlayerImage();
         }
-
-        //reset score
-        IncreaseScore(-score);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
