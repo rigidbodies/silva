@@ -8,12 +8,14 @@ public class CheckpointController : MonoBehaviour
     [SerializeField] Sprite checkpointNotReached;
     [SerializeField] Sprite checkpointReached;
     private SpriteRenderer spriteRenderer;
+    private AudioSource checkpointSound;
     public bool isCheckpointReached = false;
 
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        checkpointSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -26,8 +28,13 @@ public class CheckpointController : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
+            if (!isCheckpointReached)
+            {
+                checkpointSound.Play();
+            }
             isCheckpointReached = true;
             spriteRenderer.sprite = checkpointReached;
+            
 
         }
     }

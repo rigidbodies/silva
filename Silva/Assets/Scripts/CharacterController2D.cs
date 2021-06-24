@@ -19,6 +19,7 @@ public class CharacterController2D : MonoBehaviour
 
     private Rigidbody2D rigidB;
     private SpriteRenderer render;
+    private AudioSource playerSound;
 
     [SerializeField] int score = 0;
     [SerializeField] Text scoreText;
@@ -33,6 +34,7 @@ public class CharacterController2D : MonoBehaviour
         // Get RigidBody component of the player
         rigidB = GetComponent<Rigidbody2D>();
         render = GetComponent<SpriteRenderer>();
+        playerSound = GetComponent<AudioSource>();
         scoreText.text = "Score: " + score;
         respawnPosition = this.transform.position;
     }
@@ -92,6 +94,14 @@ public class CharacterController2D : MonoBehaviour
 
     private void Restart()
     {
+        /* TODO
+        //play mistake sound
+        if (!playerSound.isPlaying)
+        {
+            playerSound.Play();
+        }
+        END TODO*/
+
         //reposition player
         this.transform.position = respawnPosition;
 
