@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8537647530086840693}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 18.47, y: 2.13, z: 0}
-  m_LocalScale: {x: 1.6625813, y: 1.6625813, z: 1.6625813}
+  m_LocalScale: {x: 0.17118317, y: 0.17118317, z: 0.17118317}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a0d7b815eed9fad4b902dcb2356d39eb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 33fd00deb9b284ae3976520cab168d18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,7 +102,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
+    oldSize: {x: 27.324455, y: 20.48}
     newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -219,6 +219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51ef03f0d16f15a409a87e1a31616a4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkpointNotReached: {fileID: 21300000, guid: a0d7b815eed9fad4b902dcb2356d39eb, type: 3}
-  checkpointReached: {fileID: 21300000, guid: 20a9aa2beb7cb2a44a7c9d4daaf2f45e, type: 3}
+  checkpointNotReached: {fileID: 21300000, guid: 33fd00deb9b284ae3976520cab168d18, type: 3}
+  checkpointReached: {fileID: 21300000, guid: 2c38d380ed3004cffb550b1c2a540607, type: 3}
   isCheckpointReached: 0
