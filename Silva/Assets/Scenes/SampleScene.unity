@@ -427,7 +427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreValue: 10
-  spawnTime: 8
+  spawnTime: 20
 --- !u!82 &130367075
 AudioSource:
   m_ObjectHideFlags: 0
