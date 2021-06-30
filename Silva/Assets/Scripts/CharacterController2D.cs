@@ -167,7 +167,7 @@ public class CharacterController2D : MonoBehaviour
         }
 
         // Restart if player is hit by a crystal
-        if(collision.transform.tag == "Crystal" || collision.transform.tag == "Plant")
+        if(collision.transform.tag == "Crystal" || collision.transform.tag == "Plant" || collision.transform.tag == "Enemy")
         {
             StartCoroutine(Blink(3));            
         }

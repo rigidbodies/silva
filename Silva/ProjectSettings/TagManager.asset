@@ -10,6 +10,7 @@ TagManager:
   - Ceiling
   - Checkpoint
   - Plant
+  - Enemy
   layers:
   - Default
   - TransparentFX
