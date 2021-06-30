@@ -9,6 +9,7 @@ TagManager:
   - Crystal
   - Ceiling
   - Checkpoint
+  - Plant
   layers:
   - Default
   - TransparentFX

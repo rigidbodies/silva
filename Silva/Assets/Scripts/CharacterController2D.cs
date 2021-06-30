@@ -126,7 +126,7 @@ public class CharacterController2D : MonoBehaviour
             //wait until sound has played
             yield return new WaitForSeconds(1.9f);
             //load level again
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("MainMenu");
         }
         else
         {
@@ -167,7 +167,7 @@ public class CharacterController2D : MonoBehaviour
         }
 
         // Restart if player is hit by a crystal
-        if(collision.transform.tag == "Crystal")
+        if(collision.transform.tag == "Crystal" || collision.transform.tag == "Plant")
         {
             StartCoroutine(Blink(3));            
         }
