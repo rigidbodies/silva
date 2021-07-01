@@ -195,6 +195,11 @@ public class CharacterController2D : MonoBehaviour
         {
             respawnPosition = collision.transform.position;
         }
+
+        if (collision.gameObject.tag == "Fireball")
+        {
+            StartCoroutine(Blink(3));
+        }
     }
 
 

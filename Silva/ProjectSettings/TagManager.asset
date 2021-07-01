@@ -11,6 +11,7 @@ TagManager:
   - Checkpoint
   - Plant
   - Enemy
+  - Fireball
   layers:
   - Default
   - TransparentFX

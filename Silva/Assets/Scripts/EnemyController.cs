@@ -1,37 +1,41 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class EnemyController : MonoBehaviour
 {
-    public GameObject enemy;
-    public float speed = 3;
-    public Transform[] points;
-    public int destinationIndex = 0; //points to the index of the current destination in the points array
-    private bool facingLeft = true;
+    [SerializeField] GameObject enemy;
+    [SerializeField] float speed = 3;
+    [SerializeField] Transform[] points;                    // enemy moves between 2 points
 
+    [SerializeField] float attackTime = 3.0f;
+    [SerializeField] Transform fireballSpanwPos;
+    [SerializeField] GameObject fireball;
+
+    private int destinationIndex = 0;                       //points to the index of the current destination in the points array
+    private bool facingLeft = true;
+    private float timeCounter = 0.0f;
     private Transform currentDestination;
 
     // Start is called before the first frame update
     void Start()
     {
         currentDestination = points[destinationIndex];
-
+        attackTime += Random.Range(0.0f, 1.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
         // if the enemy is facing left but the next destination is right of the player
-        if (facingLeft && currentDestination.position.x > enemy.transform.position.x)
-        {
-            FlipPlayerImage();
-        }
-        // if the enemy is facing right but the next destination is left from the player
-        else if (!facingLeft && currentDestination.position.x < enemy.transform.position.x)
+        // or if the enemy is facing right but the next destination is left from the player
+        if (facingLeft && currentDestination.position.x > enemy.transform.position.x
+            || !facingLeft && currentDestination.position.x < enemy.transform.position.x)
         {
             FlipPlayerImage();
         }
 
         enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, currentDestination.position, Time.deltaTime * speed);
+
 
         if (enemy.transform.position == currentDestination.position)
         {
@@ -40,7 +44,26 @@ public class EnemyController : MonoBehaviour
             //update current destination
             currentDestination = points[destinationIndex];
         }
+
+        timeCounter += Time.deltaTime;
+
+        if (timeCounter >= attackTime)
+        {
+            //reset timeCounter
+            timeCounter = 0.0f;
+
+
+            Fireball ball = Fireball.Instantiate(fireball, fireballSpanwPos.position, fireballSpanwPos.rotation).GetComponent<Fireball>();
+            if (facingLeft)
+            {
+                ball.direction = -1;
+            } else
+            {
+                ball.direction = 1;
+            }
+        }
     }
+
 
     private void FlipPlayerImage()
     {
