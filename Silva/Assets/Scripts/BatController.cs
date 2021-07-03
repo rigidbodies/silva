@@ -8,13 +8,11 @@ public class BatController : MonoBehaviour
     [SerializeField] private float verticalVelocity = 2.0f;
 
     private float screenHeight;
-    //private Vector3 startingPosition;
 
     // Start is called before the first frame update
     void Start()
     {
         screenHeight = Camera.main.orthographicSize;
-        //startingPosition = this.transform.position;
     }
 
     // Update is called once per frame
@@ -25,7 +23,6 @@ public class BatController : MonoBehaviour
 
         if (transform.position.y > 2 * screenHeight)
         {
-            //this.transform.position = startingPosition;
             Destroy(this.gameObject);
         }
     }
