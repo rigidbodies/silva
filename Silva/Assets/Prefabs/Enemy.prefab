@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5212685527821250821}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1584793, y: 0.1584793, z: 0.1584793}
+  m_LocalScale: {x: 0.17263389, y: 0.17263389, z: 0.17263389}
   m_Children: []
   m_Father: {fileID: 5212685528436451708}
   m_RootOrder: 0
@@ -97,7 +97,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.41798317, y: -0.1737256}
+  m_Offset: {x: 0.41798317, y: -0.2902341}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -108,7 +108,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.7042296, y: 11.327725}
+  m_Size: {x: 3.7042296, y: 11.560742}
   m_EdgeRadius: 0
 --- !u!95 &5212685527821250822
 Animator:
@@ -243,3 +243,5 @@ MonoBehaviour:
   attackTime: 3
   fireballSpanwPos: {fileID: 5212685527821250819}
   fireball: {fileID: 2883010215035230698, guid: c523afc73ae03b14bb419a706851377e, type: 3}
+  fireballOffset: 0.5
+  attackDelay: 0.5

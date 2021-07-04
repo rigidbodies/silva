@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class EnemyController : MonoBehaviour
 {
@@ -10,17 +11,24 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float attackTime = 3.0f;
     [SerializeField] Transform fireballSpanwPos;
     [SerializeField] GameObject fireball;
+    [SerializeField] float fireballOffset = 1f;             // distance between the enemy and the spawn position of the fireball
+    [SerializeField] float attackDelay = 2.0f;              // time to wait before instantiating fireball
 
     private int destinationIndex = 0;                       //points to the index of the current destination in the points array
     private bool facingLeft = true;
     private float timeCounter = 0.0f;
     private Transform currentDestination;
 
+    private Animator animator;
+    
+
+
     // Start is called before the first frame update
     void Start()
     {
         currentDestination = points[destinationIndex];
         attackTime += Random.Range(0.0f, 1.0f);
+        animator = enemy.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -49,18 +57,38 @@ public class EnemyController : MonoBehaviour
 
         if (timeCounter >= attackTime)
         {
+            animator.SetBool("AttackTime", true);
             //reset timeCounter
             timeCounter = 0.0f;
 
+            StartCoroutine(Attack());
 
-            Fireball ball = Fireball.Instantiate(fireball, fireballSpanwPos.position, fireballSpanwPos.rotation).GetComponent<Fireball>();
-            if (facingLeft)
-            {
-                ball.direction = -1;
-            } else
-            {
-                ball.direction = 1;
-            }
+        } else {
+            animator.SetBool("AttackTime", false);
+        }
+    }
+
+    public IEnumerator Attack()
+    {
+        // wait for some time so that the fireball is created at the end of the attacking animation and not immediately
+        yield return new WaitForSeconds(attackDelay);
+
+        //Instantiate fireball
+        Fireball ball = Fireball.Instantiate(fireball, fireballSpanwPos.position, fireballSpanwPos.rotation).GetComponent<Fireball>();
+
+        // if the enemy is facing left, the fireball should move left too
+        if (facingLeft)
+        {
+            ball.direction = -1;
+            // let fireball appear a bit more left than the enemy
+            ball.transform.position += new Vector3(-fireballOffset, 0, 0);
+        }
+        // if the player is facing right, the fireball shoud move right too
+        else
+        {
+            ball.direction = 1;
+            // let fireball appear a bit more right than the enemy
+            ball.transform.position += new Vector3(fireballOffset, 0, 0);
         }
     }
 
