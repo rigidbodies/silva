@@ -55,4 +55,10 @@ public class PauseMenuController : MonoBehaviour
         Application.Quit();
         Debug.Log("Quit");
     }
+
+
+    public void OnStartMenuButtonClick()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
