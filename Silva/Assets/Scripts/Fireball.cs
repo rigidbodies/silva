@@ -5,34 +5,60 @@ using UnityEngine;
 public class Fireball : MonoBehaviour
 {
 
-    [SerializeField] float speed;
+    [SerializeField] float speed;              // width of fireball curve
+    [SerializeField] private float amplitude;  // height of fireball curve
     public int direction { get; set; }      // direction of fireball movement (1 for right, -1 for left)
     private float screenWidth;
     private float cameraRange;
+
+    private Rigidbody2D rigidB;
+    private SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
         // get width of the screen
         screenWidth = Camera.main.orthographicSize * Camera.main.aspect;
+
+        // get components
+        rigidB = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        // Make fireball move in arched trajectory
+        rigidB.AddForce(new Vector2(speed * direction, amplitude));
     }
 
     
     // destroy fireball if player is hit
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if(collision.transform.tag == "Player" || collision.transform.tag == "Ground" || collision.transform.tag == "MovingPlattform")
         {
-            Destroy(gameObject);
+            // Stop moving
+            rigidB.velocity = new Vector2(0, 0);
+            rigidB.gravityScale = 0;
+            StartCoroutine(FadeOut());
         }
+    }
+
+    IEnumerator FadeOut()
+    {
+        //let fireball fade out
+        for (float f = 1; f >= 0.0; f -= 0.05f)
+        {
+            Color c = spriteRenderer.material.color;
+            c.a = f;
+            spriteRenderer.material.color = c;
+            yield return new WaitForSeconds(0.02f);
+        }
+
+        //destroy fireball
+        Destroy(this.gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
-        // let fireball move in a direction with given speed
-        transform.position += new Vector3(speed, 0, 0) * Time.deltaTime * direction;
-
         // get actual range of camera-x value
         //cameraRange = screenWidth + Camera.main.transform.position.x;
 
