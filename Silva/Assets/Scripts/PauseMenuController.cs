@@ -9,15 +9,7 @@ public class PauseMenuController : MonoBehaviour
 
     public static bool IsPaused = false;
     public GameObject pauseMenu;
-    public GameObject levelSelectMenu;
-    public GameObject optionsMenu;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-
-    }
 
     // Update is called once per frame
     void Update()

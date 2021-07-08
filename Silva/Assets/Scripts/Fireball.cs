@@ -13,6 +13,8 @@ public class Fireball : MonoBehaviour
 
     private Rigidbody2D rigidB;
     private SpriteRenderer spriteRenderer;
+    [SerializeField] AudioSource creationSound;
+    [SerializeField] AudioSource landingSound;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,8 @@ public class Fireball : MonoBehaviour
 
         // Make fireball move in arched trajectory
         rigidB.AddForce(new Vector2(speed * direction, amplitude));
+
+        creationSound.Play();
     }
 
     
@@ -43,6 +47,8 @@ public class Fireball : MonoBehaviour
 
     IEnumerator FadeOut()
     {
+        landingSound.Play();
+
         //let fireball fade out
         for (float f = 1; f >= 0.0; f -= 0.05f)
         {
@@ -63,8 +69,8 @@ public class Fireball : MonoBehaviour
         //cameraRange = screenWidth + Camera.main.transform.position.x;
 
         // if fireball is not visible on the screen anymore, destroy fireball
-        if (transform.position.x > screenWidth + Camera.main.transform.position.x 
-            || transform.position.x < -screenWidth + Camera.main.transform.position.x)
+        if (transform.position.x > screenWidth * 1.5 + Camera.main.transform.position.x 
+            || transform.position.x < -screenWidth * 1.5 + Camera.main.transform.position.x)
         {
             //this.transform.position = startingPosition;
             Destroy(gameObject);

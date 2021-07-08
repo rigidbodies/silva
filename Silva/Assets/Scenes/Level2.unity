@@ -503,22 +503,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1847645802}
     m_Modifications:
-    - target: {fileID: 5212685527821250820, guid: 9e977e4454b6d1846b79d4441bcb4b87, type: 3}
-      propertyPath: m_Size.x
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5212685527821250820, guid: 9e977e4454b6d1846b79d4441bcb4b87, type: 3}
-      propertyPath: m_Size.y
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5212685527821250820, guid: 9e977e4454b6d1846b79d4441bcb4b87, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 26717f37334e983458dcd1fb2b7cbda6, type: 3}
-    - target: {fileID: 5212685527821250820, guid: 9e977e4454b6d1846b79d4441bcb4b87, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5212685528436451708, guid: 9e977e4454b6d1846b79d4441bcb4b87, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -788,7 +772,7 @@ GameObject:
   - component: {fileID: 341586040}
   - component: {fileID: 341586039}
   m_Layer: 5
-  m_Name: BackToMainButton
+  m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2582,11 +2566,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1018351963340093789, guid: 083158111d6c0884cbcdcf42985caad1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.08
+      value: -7.05
       objectReference: {fileID: 0}
     - target: {fileID: 1018351963340093789, guid: 083158111d6c0884cbcdcf42985caad1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.07
+      value: -0.97
       objectReference: {fileID: 0}
     - target: {fileID: 1018351963340093789, guid: 083158111d6c0884cbcdcf42985caad1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5260,6 +5244,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1785076702}
+        m_TargetAssemblyTypeName: PauseMenuController, Assembly-CSharp
+        m_MethodName: ResumeGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1713349343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6795,7 +6791,7 @@ GameObject:
   - component: {fileID: 2114043811}
   - component: {fileID: 2114043810}
   m_Layer: 5
-  m_Name: BackToMainButton
+  m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

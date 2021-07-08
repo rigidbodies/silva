@@ -20,8 +20,7 @@ public class MenuController : MonoBehaviour
             SceneManager.LoadScene("Level2");
         } else if (button.name == "Level3Button")
         {
-            Debug.Log("Load level 3");
-            // TODO: load level 3
+            SceneManager.LoadScene("Level3");
         }
     }
 
