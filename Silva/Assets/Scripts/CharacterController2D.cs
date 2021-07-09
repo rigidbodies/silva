@@ -32,6 +32,8 @@ public class CharacterController2D : MonoBehaviour
 
     private LivesController hearts;
 
+    private GameTriggeredMenuController gameOverMenu;
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +45,7 @@ public class CharacterController2D : MonoBehaviour
         scoreText.text = "Score: " + score;
         respawnPosition = this.transform.position;
         hearts = FindObjectOfType<LivesController>();
+        gameOverMenu = FindObjectOfType<GameTriggeredMenuController>();
     }
 
     // Update is called once per frame
@@ -121,12 +124,12 @@ public class CharacterController2D : MonoBehaviour
         hearts.Lose1Life();
 
         // if no life is left the scene is reloaded so that all values (score, lives, collected booksm checkpoints) are resetted
-        if (hearts.Lives == 0)
+        if (hearts.Lives < 1)
         {
             //wait until sound has played
             yield return new WaitForSeconds(1.9f);
-            //load level again
-            SceneManager.LoadScene("MainMenu");
+            //gameOver screen
+            gameOverMenu.DisplayMenu("gameOverMenu");
         }
         else
         {
@@ -208,6 +211,11 @@ public class CharacterController2D : MonoBehaviour
     {
         score += value;
         scoreText.text = "Score: " + score;
+    }
+
+    public int GetScore()
+    {
+        return score;
     }
 
     IEnumerator Blink(int reps)

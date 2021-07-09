@@ -14,12 +14,15 @@ public class BookCollect : MonoBehaviour
     private AudioSource bookSound;
     private SpriteRenderer spriteRenderer;
 
+    private GameTriggeredMenuController levelCompletedMenu;
+
     // Start is called before the first frame update
     void Start()
     {
         originalY = transform.position.y;
         bookSound = GetComponent<AudioSource>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        levelCompletedMenu = FindObjectOfType<GameTriggeredMenuController>();
     }
 
     // Update is called once per frame
@@ -50,7 +53,7 @@ public class BookCollect : MonoBehaviour
             }
             else
             {
-                Destroy(gameObject, 3.0f);                    // Destroys the gameObject to wich the script is attaced to (the book)
+                StartCoroutine(LevelCompleted());
             }
             character.IncreaseScore(scoreValue);
         }
@@ -61,5 +64,12 @@ public class BookCollect : MonoBehaviour
     {
         float shiftY = originalY + (Mathf.Sin(Time.time) * floatValue);
         transform.position = new Vector3(transform.position.x, shiftY, transform.position.z);
+    }
+
+    IEnumerator LevelCompleted()
+    {
+        yield return new WaitForSeconds(3.0f);
+        levelCompletedMenu.DisplayMenu("levelCompletedMenu");
+        Destroy(gameObject);                    // Destroys the gameObject to wich the script is attaced to (the book)
     }
 }

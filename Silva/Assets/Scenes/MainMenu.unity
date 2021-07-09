@@ -1298,7 +1298,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'We are in the glowing time of the past, when nature still rules strongly
     over the world and the forests stretch across the continents. In the oldest of
-    these forests lives the small, ancient people of the Titos. '
+    these forests live the small, ancient people of the Titos. '
 --- !u!222 &295935712
 CanvasRenderer:
   m_ObjectHideFlags: 0
