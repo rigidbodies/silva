@@ -3816,7 +3816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1708573089}
-  cameraDistance: 100
+  cameraDistance: 80
   topBoundary: 8
   bottomBoundary: -8
   leftBoundary: -8.7
