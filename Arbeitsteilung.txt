@@ -1,0 +1,72 @@
+Juliana Wiest:
+- Hintergrundgraphiken: Startbildschirm, Menühintergrund im Spiel, Hintergrund Level 1-3
+- Sprites:
+    Allgemein: Schriftzüge für alle Menüs (Logo, Levels, Options, Description, Keys, Paused, Game Over, Level Completed)
+    Level 2: Buch, Feuerball
+- Animations-Sprites:
+    Allgemein: Silva (Player) (Idle, Laufen, Springen)
+    Level 1: Fledermaus
+    Level 2: Schattenwesen (Enemy) (Laufen, Werfen), Pflanze, Vogel
+    Level 3: Buchseiten
+- Unity-Projekt:
+    - Level-Gestaltung: Level 2
+    - Platzierung der Schriftzüge in allen Menüs
+- Programmierung:
+    Level 2: Vogel-Animation (Skripte BirdController, BirdSpawner)
+    Level 3: Buchseiten
+
+Nataliia Daliba:
+- Hintergrundgraphiken: Level 3
+- Sprites:
+    Level 1: Bodenplatten, Deckenplatten, Checkpoints, Kristalle (3 Varianten), Buch
+    Level 2: Bodenplatten, Checkpoints
+    Level 3: Bodenplatten, Checkpoints, Kronleuchter, Buchseiten
+- Unity-Projekt:
+    - Farbverhalten der Buttons in allen Menüs
+    - Level-Gestaltung: Level 2
+- Programmierung:
+    Level 2: Vogel (Skripte BirdController, BirdSpawner)
+    Level 3: Buchseiten
+
+Monica Riedler:
+- Unity-Projekt:
+    - Aufsetzen Unity-Projekt + alle Szenen
+    - Level-Gestaltung: Level 1, Level 2
+    - Erstellen der Tilemaps
+    - Erstellen Main-Menu, Level-Menu, Description-Menu, Paused-Menu
+    - Anzeige Score + Leben
+- Programmierung:
+    - Menüführung (Skripte MainMenuController und PausedMenuController)
+    - Soundeffekte: Feuerball, Pflanze,
+    - Hintergrundmusik: Level 3
+    - Steuerung Score-Anzeige (Skript CharacterController2D - Funktion IncreaseScore)
+    - Steuerung Leben-Anzeige (Skript LivesController)
+    - Camera-Führung (Skript CameraFollow)
+    - Bewegungssteuerung + Animation Silva (Skript CharacterController2D - Funktion Update, FlipPlayerImage)
+    - Bücher einsammeln (Skript BookCollect)
+    - Checkpoints erreichen (Skript CheckpointController)
+    - Schattenwesen (Skript EnemyController + Prefab)
+    - Pflanzen (Skript PlantController)
+
+
+Katja Frey:
+- Unity-Projekt:
+    - Level-Gestaltung: Level 1, Level 2
+    - Aufsetzen der Sound-Funktionsweise (Einstellen der Sound-Mixer)
+    - Erstellen Game-Over-Menu und Level-Completed-Menu
+    - Anzeige der Sound-Instruktion zu Beginn eines Levels
+- Programmierung:
+    - Soundsteuerung: Funktionsweise Volume-Slider (Skript VolumeController), Initial-Sound-Settings (Skript InitialSoundController)
+    - Soundeffekte: Leben-Verlust, Level-Completed, Bücher einsammeln, Kristalle, Extra-Punkte
+    - Hintergrundmusik: Startbildschirm, Level 1, Level 2  
+    - Begrenzung Camera-Führung (Skript CameraFollow)
+    - Respawning bei Leben-Verlust (Skript CharacterController2D - Funktionen Restart, Respawn, Blink)
+    - Verhalten Game-Over-Menu und Level-Completed Menu (Skript GameTriggeredMenuController)
+    - Moving-Platforms (Skript MovingPlatform + Prefab)
+    - Sound für Extra-Punkte (Skript SoundSpawner)
+    - Steuerung Sound-Instruktion zu Beginn eines Levels (Skript InstructionTextController)
+    - Verhalten Kristalle, Kronleuchter (Skripte CrystalController und CrystalSpawner)
+    - Fledermaus (Skripte BatController und BatSpawner)
+    - Flugbahn Feuerball (Skript Fireball)
+
+Anmerkung: An den meisten Skripten (insbesondere CharacterController2D) haben sowohl Monica Riedler als auch Katja Frey gearbeitet, Funktionalität ergänzt, diese weiterentwickelt und überarbeitet, etc.. Die Aufstellung hier ist wirklich nur eine grobe Übersicht.
