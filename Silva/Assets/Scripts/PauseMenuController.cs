@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PauseMenuController : MonoBehaviour
 {
 
-    public static bool IsPaused = false;
+    bool IsPaused = false;
     public GameObject pauseMenu;
+    [SerializeField] GameObject soundInstruction;
 
 
     // Update is called once per frame
@@ -22,6 +20,11 @@ public class PauseMenuController : MonoBehaviour
             } else
             {
                 PauseGame();
+                // check if soundInstruction object still exists, as it is destroyed after it faded out
+                if (soundInstruction)
+                {
+                    soundInstruction.SetActive(false);
+                }
             }
         }
     }
@@ -53,4 +56,5 @@ public class PauseMenuController : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
 }

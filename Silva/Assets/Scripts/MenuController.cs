@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
@@ -30,11 +28,5 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.DeleteAll();
         Application.Quit();
         Debug.Log("Quit");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
