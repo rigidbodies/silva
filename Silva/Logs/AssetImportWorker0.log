@@ -108,3 +108,59 @@ Received Import Request.
 Start importing Assets/Scenes/Level2.unity using Guid(55a358236408d22438e266210c168511) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd94ad5b0f6a181ee5f0939a6accd955e') in 0.005280 seconds
   Import took 0.013432 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 2065.109780 seconds.
+  path: Assets/Sprites/Books/book3.PNG
+  artifactKey: Guid(f865e62eaa3b74a368020a32bce5820d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Books/book3.PNG using Guid(f865e62eaa3b74a368020a32bce5820d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '797211ee5211e73d9c4559db4fcad393') in 1.377227 seconds
+  Import took 1.422785 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.040459 seconds.
+  path: Assets/Sprites/Crystals/Kristal_lila.PNG
+  artifactKey: Guid(1690dd270bc4144479999f05c4daad10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Crystals/Kristal_lila.PNG using Guid(1690dd270bc4144479999f05c4daad10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7cf1f78dfc6061fb7bd5688f9afc227c') in 0.020369 seconds
+  Import took 0.024721 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000208 seconds.
+  path: Assets/Sprites/Crystals/Kristal_lila_cropped.png
+  artifactKey: Guid(83b0ad023ee3d7f4bac52fc33bf02518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Crystals/Kristal_lila_cropped.png using Guid(83b0ad023ee3d7f4bac52fc33bf02518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a8186ff59ab244acda67d6b4c91894c') in 0.029044 seconds
+  Import took 0.034037 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.004173 seconds.
+  path: Assets/Sprites/Crystals/Kristal_lila_cropped.png
+  artifactKey: Guid(83b0ad023ee3d7f4bac52fc33bf02518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Crystals/Kristal_lila_cropped.png using Guid(83b0ad023ee3d7f4bac52fc33bf02518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a8186ff59ab244acda67d6b4c91894c') in 0.021327 seconds
+  Import took 0.027274 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 50.927618 seconds.
+  path: Assets/Sprites/Chandelier
+  artifactKey: Guid(5ec9ee3f1f72f41f4ac9ffca7dd136c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Chandelier using Guid(5ec9ee3f1f72f41f4ac9ffca7dd136c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6bb50cc77ecc95fef285aa29a3906ea0') in 0.003367 seconds
+  Import took 0.009559 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.142625 seconds.
+  path: Assets/Sprites/Chandelier/kronleuchter.PNG
+  artifactKey: Guid(17ad429039a434ae3b3475f55f35dae3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Chandelier/kronleuchter.PNG using Guid(17ad429039a434ae3b3475f55f35dae3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '371c27437ac6deada819ec8cba38a013') in 0.045669 seconds
+  Import took 0.050980 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002209 seconds.
+  path: Assets/Sprites/Chandelier/kronleuchter.PNG
+  artifactKey: Guid(17ad429039a434ae3b3475f55f35dae3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/Chandelier/kronleuchter.PNG using Guid(17ad429039a434ae3b3475f55f35dae3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '371c27437ac6deada819ec8cba38a013') in 0.017901 seconds
+  Import took 0.021467 seconds .
+
