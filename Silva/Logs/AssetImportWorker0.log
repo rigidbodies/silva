@@ -164,3 +164,11 @@ Received Import Request.
 Start importing Assets/Sprites/Chandelier/kronleuchter.PNG using Guid(17ad429039a434ae3b3475f55f35dae3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '371c27437ac6deada819ec8cba38a013') in 0.017901 seconds
   Import took 0.021467 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 691.304755 seconds.
+  path: Assets/Scenes/Level3.unity
+  artifactKey: Guid(984b15bfa2554ad4ea886d67d068a791) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Level3.unity using Guid(984b15bfa2554ad4ea886d67d068a791) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9fe0bd14465bd85446e971188af5784c') in 0.007885 seconds
+  Import took 0.017071 seconds .
+
