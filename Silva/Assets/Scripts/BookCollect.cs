@@ -68,7 +68,13 @@ public class BookCollect : MonoBehaviour
 
     IEnumerator LevelCompleted()
     {
+        // Disable player movement
+        character.canMove = false;
+
+        // Wait until level completed sound has played
         yield return new WaitForSeconds(3.0f);
+
+        // Display levelCompletedMenu + destroy final book
         levelCompletedMenu.DisplayMenu("levelCompletedMenu");
         Destroy(gameObject);                    // Destroys the gameObject to wich the script is attaced to (the book)
     }

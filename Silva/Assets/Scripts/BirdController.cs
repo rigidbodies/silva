@@ -22,7 +22,7 @@ public class BirdController : MonoBehaviour
         gameTime += Time.deltaTime;
         transform.position += new Vector3(horizontalVelocity, amplitude * Mathf.Sin(gameTime * verticalVelocity), 0 ) * Time.deltaTime;
         
-        if (transform.position.x > 150)
+        if (transform.position.x > 350)
         {
             Destroy(this.gameObject);
 

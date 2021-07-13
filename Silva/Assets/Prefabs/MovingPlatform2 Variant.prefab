@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingPlatform2 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1213131712995560637, guid: a54888d91ec4a35459f941163a079838, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1213131712995560639, guid: a54888d91ec4a35459f941163a079838, type: 3}
       propertyPath: m_RootOrder
       value: 0

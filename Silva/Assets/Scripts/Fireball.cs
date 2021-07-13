@@ -36,7 +36,13 @@ public class Fireball : MonoBehaviour
     // destroy fireball if player is hit
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.transform.tag == "Player" || collision.transform.tag == "Ground" || collision.transform.tag == "MovingPlattform")
+        // Make fireball move with MovingPlatform when landing on it
+        if (collision.transform.tag == "MovingPlatform")
+        {
+            transform.parent = collision.transform;
+        }
+
+        if (collision.transform.tag == "Player" || collision.transform.tag == "Ground" || collision.transform.tag == "MovingPlatform")
         {
             // Stop moving
             rigidB.velocity = new Vector2(0, 0);

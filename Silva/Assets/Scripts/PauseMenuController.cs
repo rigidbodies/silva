@@ -7,7 +7,13 @@ public class PauseMenuController : MonoBehaviour
     bool IsPaused = false;
     public GameObject pauseMenu;
     [SerializeField] GameObject soundInstruction;
+    private CharacterController2D playerScript;
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        playerScript = FindObjectOfType<CharacterController2D>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -32,6 +38,7 @@ public class PauseMenuController : MonoBehaviour
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
+        playerScript.canMove = true;
         Time.timeScale = 1f;
         IsPaused = false;
     }
@@ -39,6 +46,7 @@ public class PauseMenuController : MonoBehaviour
     public void PauseGame()
     {
         pauseMenu.SetActive(true);
+        playerScript.canMove = false;
         Time.timeScale = 0f;
         IsPaused = true;
     }

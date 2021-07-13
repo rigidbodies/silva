@@ -34,6 +34,9 @@ public class GameTriggeredMenuController : MonoBehaviour
         // Disable in-game score display
         inGameScoreText.SetActive(false);
 
+        // Disable player movement
+        playerScript.canMove = false;
+
         // Display menu depending on parameter
         if (menuName == "gameOverMenu") //gameOverMenu
         {

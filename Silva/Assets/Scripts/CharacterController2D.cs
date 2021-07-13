@@ -14,7 +14,7 @@ public class CharacterController2D : MonoBehaviour
     private bool isGrounded;                                        // Whether the player is on the gound and not jumping
     private bool facingRight = true;                                // Check if player is facing right
     private bool isRespawning = false;                              // Make sure only one life can be lost at a time
-    private bool canMove = true;                                    // Used for disabling movement while respawning
+    public bool canMove = true;                                    // Used for disabling movement while respawning
     [SerializeField] float leftBoundary = -8.7f;                    // Mimimum value of player x
     [SerializeField] float rightBoundary = 298f;                    // Maximum value of player x
 
@@ -51,45 +51,46 @@ public class CharacterController2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canMove)
+        if (!canMove)
         {
-            // Get horizontal movement and multiply with movement speed
-            horizontalMove = Input.GetAxisRaw("Horizontal") * movementSpeed;
-
-            // Apply absolute value of horizontalMove to the movement speed parameter of the animator to start movement animation
-            animator.SetFloat("Movement Speed", Mathf.Abs(horizontalMove));
-
-
-            // The player can only move if he is within the level boundaries
-            if ((transform.position.x > leftBoundary || horizontalMove > 0)
-                && (transform.position.x < rightBoundary || horizontalMove < 0))
-            {
-                // Transform actual horizontal position according to horizontal movement and time passed
-                transform.position += new Vector3(horizontalMove, 0, 0) * Time.deltaTime;
-            }
-
-            // The player cannot jump multiple times while he is still jumping
-            if (isGrounded && Input.GetButtonDown("Jump"))
-            {
-                // Add vertical force to player if he should jump
-                rigidB.AddForce(new Vector2(0, jumpForce));
-                // Set animator parameter to true, so that the jump animation can start
-                animator.SetBool("IsJumping", true);
-            }
-
-            // If the player falls off he'll start the level from scratch
-            if (this.transform.position.y < bottomBoundary && !isRespawning)
-            {
-                Restart();
-            }
-
-            // If the player is looking opposite to the movement direction, the player image shoud be flipped
-            if ((horizontalMove > 0 && !facingRight) || (horizontalMove < 0 && facingRight))
-            {
-                FlipPlayerImage();
-            }
+            return;  
         }
-        
+
+        // Get horizontal movement and multiply with movement speed
+        horizontalMove = Input.GetAxisRaw("Horizontal") * movementSpeed;
+
+        // Apply absolute value of horizontalMove to the movement speed parameter of the animator to start movement animation
+        animator.SetFloat("Movement Speed", Mathf.Abs(horizontalMove));
+
+
+        // The player can only move if he is within the level boundaries
+        if ((transform.position.x > leftBoundary || horizontalMove > 0)
+            && (transform.position.x < rightBoundary || horizontalMove < 0))
+        {
+            // Transform actual horizontal position according to horizontal movement and time passed
+            transform.position += new Vector3(horizontalMove, 0, 0) * Time.deltaTime;
+        }
+
+        // The player cannot jump multiple times while he is still jumping
+        if (isGrounded && Input.GetButtonDown("Jump"))
+        {
+            // Add vertical force to player if he should jump
+            rigidB.AddForce(new Vector2(0, jumpForce));
+            // Set animator parameter to true, so that the jump animation can start
+            animator.SetBool("IsJumping", true);
+        }
+
+        // If the player falls off he'll start the level from scratch
+        if (this.transform.position.y < bottomBoundary && !isRespawning)
+        {
+            Restart();
+        }
+
+        // If the player is looking opposite to the movement direction, the player image shoud be flipped
+        if ((horizontalMove > 0 && !facingRight) || (horizontalMove < 0 && facingRight))
+        {
+            FlipPlayerImage();
+        }
     }
 
 
@@ -142,15 +143,16 @@ public class CharacterController2D : MonoBehaviour
             yield return new WaitForSeconds(1.9f);
             //make player image reappear
             render.enabled = true;
-        }   
-        
-        //make sure he starts off again facing right
-        if (!facingRight)
-        {
-            FlipPlayerImage();
-        }
 
-        canMove = true;
+            //make sure he starts off again facing right
+            if (!facingRight)
+            {
+                FlipPlayerImage();
+            }
+
+            canMove = true;
+        }   
+                
         isRespawning = false;
     }
 
