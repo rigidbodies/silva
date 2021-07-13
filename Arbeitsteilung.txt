@@ -43,10 +43,10 @@ Monica Riedler:
     - Steuerung Leben-Anzeige (Skript LivesController)
     - Camera-Führung (Skript CameraFollow)
     - Bewegungssteuerung + Animation Silva (Skript CharacterController2D - Funktion Update, FlipPlayerImage)
-    - Bücher einsammeln (Skript BookCollect)
-    - Checkpoints erreichen (Skript CheckpointController)
+    - Bücher einsammeln (Skript BookCollect + Prefabs)
+    - Checkpoints erreichen (Skript CheckpointController + Prefab)
     - Schattenwesen (Skript EnemyController + Prefab)
-    - Pflanzen (Skript PlantController)
+    - Pflanzen (Skript PlantController + Prefab)
 
 
 Katja Frey:
@@ -62,10 +62,11 @@ Katja Frey:
     - Begrenzung Camera-Führung (Skript CameraFollow)
     - Respawning bei Leben-Verlust (Skript CharacterController2D - Funktionen Restart, Respawn, Blink)
     - Verhalten Game-Over-Menu und Level-Completed Menu (Skript GameTriggeredMenuController)
-    - Moving-Platforms (Skript MovingPlatform + Prefab)
+    - Moving-Platforms (Skript MovingPlatform + Prefabs)
+    - Falling Tiles (Skript FallingTiles + Prefab)
     - Sound für Extra-Punkte (Skript SoundSpawner)
     - Steuerung Sound-Instruktion zu Beginn eines Levels (Skript InstructionTextController)
-    - Verhalten Kristalle, Kronleuchter (Skripte CrystalController und CrystalSpawner)
+    - Verhalten Kristalle, Kronleuchter (Skripte CrystalController und CrystalSpawner + Prefabs)
     - Fledermaus (Skripte BatController und BatSpawner)
     - Flugbahn Feuerball (Skript Fireball)
 
