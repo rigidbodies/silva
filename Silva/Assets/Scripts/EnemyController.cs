@@ -103,4 +103,13 @@ public class EnemyController : MonoBehaviour
         enemyScale.x *= -1;
         enemy.transform.localScale = enemyScale;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Make enemy move with MovingPlatform while on it
+        if (collision.transform.tag == "MovingPlatform")
+        {
+            transform.parent = collision.transform;
+        }
+    }
 }

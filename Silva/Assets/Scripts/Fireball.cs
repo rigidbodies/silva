@@ -42,7 +42,7 @@ public class Fireball : MonoBehaviour
             transform.parent = collision.transform;
         }
 
-        if (collision.transform.tag == "Player" || collision.transform.tag == "Ground" || collision.transform.tag == "MovingPlatform")
+        if (collision.transform.tag == "Player" || collision.transform.tag == "Ground" || collision.transform.tag == "Ceiling" || collision.transform.tag == "MovingPlatform")
         {
             // Stop moving
             rigidB.velocity = new Vector2(0, 0);
