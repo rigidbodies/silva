@@ -15,6 +15,7 @@ public class CharacterController2D : MonoBehaviour
     private bool facingRight = true;                                // Check if player is facing right
     private bool isRespawning = false;                              // Make sure only one life can be lost at a time
     public bool canMove = true;                                    // Used for disabling movement while respawning
+    private int soundPlayed;                                        // Mistake sound cannot be played more than three times
     [SerializeField] float leftBoundary = -8.7f;                    // Mimimum value of player x
     [SerializeField] float rightBoundary = 298f;                    // Maximum value of player x
 
@@ -46,6 +47,7 @@ public class CharacterController2D : MonoBehaviour
         respawnPosition = this.transform.position;
         hearts = FindObjectOfType<LivesController>();
         gameOverMenu = FindObjectOfType<GameTriggeredMenuController>();
+        soundPlayed = 0;
     }
 
     // Update is called once per frame
@@ -114,9 +116,10 @@ public class CharacterController2D : MonoBehaviour
     {
         isRespawning = true;
         canMove = false;
+        soundPlayed++;
 
         //play mistake sound
-        if (!playerSound.isPlaying)
+        if (!playerSound.isPlaying && soundPlayed<=3)
         {
             playerSound.Play();
         }
