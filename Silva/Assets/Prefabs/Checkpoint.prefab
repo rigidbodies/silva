@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 33fd00deb9b284ae3976520cab168d18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -221,4 +221,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkpointNotReached: {fileID: 21300000, guid: 33fd00deb9b284ae3976520cab168d18, type: 3}
   checkpointReached: {fileID: 21300000, guid: 2c38d380ed3004cffb550b1c2a540607, type: 3}
-  isCheckpointReached: 0

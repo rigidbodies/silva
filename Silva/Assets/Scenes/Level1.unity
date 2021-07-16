@@ -12571,7 +12571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8537647530086840689, guid: 565eb8042938ae141b64f06fbd3ac794, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.7898054
+      value: -4.75
       objectReference: {fileID: 0}
     - target: {fileID: 8537647530086840689, guid: 565eb8042938ae141b64f06fbd3ac794, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12924,6 +12924,10 @@ PrefabInstance:
       propertyPath: gameOverMenu
       value: 
       objectReference: {fileID: 2118992675}
+    - target: {fileID: 1018351963340093788, guid: 083158111d6c0884cbcdcf42985caad1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1018351963340093789, guid: 083158111d6c0884cbcdcf42985caad1, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -13166,7 +13170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8537647530086840689, guid: 565eb8042938ae141b64f06fbd3ac794, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.83
+      value: -0.77
       objectReference: {fileID: 0}
     - target: {fileID: 8537647530086840689, guid: 565eb8042938ae141b64f06fbd3ac794, type: 3}
       propertyPath: m_LocalPosition.z
