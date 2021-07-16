@@ -3867,7 +3867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverMenu: {fileID: 2118992675}
-  gameOverScoreText: {fileID: 0}
+  gameOverScoreText: {fileID: 245383764}
   levelCompletedMenu: {fileID: 171889865}
   levelScoreText: {fileID: 1473431461}
   inGameScoreText: {fileID: 782636774}
