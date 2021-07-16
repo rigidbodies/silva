@@ -3,15 +3,16 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuController : MonoBehaviour
 {
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject soundInstruction;
 
-    bool IsPaused = false;
-    public GameObject pauseMenu;
-    [SerializeField] GameObject soundInstruction;
+    private bool isPaused = false;
     private CharacterController2D playerScript;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Get access to CharacterController2D script
         playerScript = FindObjectOfType<CharacterController2D>();
     }
 
@@ -20,13 +21,15 @@ public class PauseMenuController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (IsPaused)
+            if (isPaused) // Resume game if it is paused
             {
                 ResumeGame();
-            } else
+            }
+            else // Pause game if not paused
             {
                 PauseGame();
-                // check if soundInstruction object still exists, as it is destroyed after it faded out
+
+                // Check if soundInstruction object still exists, as it is destroyed after it faded out
                 if (soundInstruction)
                 {
                     soundInstruction.SetActive(false);
@@ -40,7 +43,7 @@ public class PauseMenuController : MonoBehaviour
         pauseMenu.SetActive(false);
         playerScript.canMove = true;
         Time.timeScale = 1f;
-        IsPaused = false;
+        isPaused = false;
     }
     
     public void PauseGame()
@@ -48,12 +51,12 @@ public class PauseMenuController : MonoBehaviour
         pauseMenu.SetActive(true);
         playerScript.canMove = false;
         Time.timeScale = 0f;
-        IsPaused = true;
+        isPaused = true;
     }
 
     public void OnQuitButtonClick()
     {
-        // quits the game, doesn't happen if opened in unity editor, only closes application if clicked in built version
+        // Quits the game, doesn't happen if opened in unity editor, only closes application if clicked in built version
         PlayerPrefs.DeleteAll();
         Application.Quit();
         Debug.Log("Quit");
@@ -64,5 +67,4 @@ public class PauseMenuController : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
-
 }

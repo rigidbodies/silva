@@ -9,12 +9,12 @@ public class InstructionTextController : MonoBehaviour
 
     private float timeCounter = 0.0f;
     private bool fadingOut = false;
-
     private Text instructionText;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Get Text component of InstructionText
         instructionText = GetComponent<Text>();
     }
 
@@ -23,6 +23,7 @@ public class InstructionTextController : MonoBehaviour
     {
         timeCounter += Time.deltaTime;
 
+        // Let instructionText disappear when time to fade out is reached
         if(timeCounter >= timeWhenFadeOut && !fadingOut)
         {
             StartCoroutine(FadeOut());

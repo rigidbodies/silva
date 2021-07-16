@@ -33,7 +33,7 @@ public class BatSpawner : MonoBehaviour
             // Instantiate bat
             GameObject batInstance = Instantiate(batPrefab) as GameObject;
 
-            // Set horizontal velocity of bat Instance
+            // Set horizontal velocity of batInstance
             float horVel = Random.Range(-2.0f, 2.0f);
             BatController batControllerScript = batInstance.GetComponent<BatController>();
             batControllerScript.horizontalVelocity = horVel;

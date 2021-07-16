@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    public GameObject platform;
-    public float speed = 3;
-    public Transform[] points;
-    public int destinationIndex = 0; //points to the index of the current destination in the points array
+    [SerializeField] private GameObject platform;
+    [SerializeField] private float speed = 3;
+    [SerializeField] private Transform[] points;
+    [SerializeField] private int destinationIndex = 0;    // Points to the index of the current destination in the points array
 
     private Transform currentDestination; 
 
@@ -24,9 +24,9 @@ public class MovingPlatform : MonoBehaviour
         
         if(platform.transform.position == currentDestination.position)
         {
-            //next destination index
+            // Next destinationIndex
             destinationIndex = (destinationIndex + 1) % points.Length;
-            //update current destination
+            // Update currentDestination
             currentDestination = points[destinationIndex];
         }
     }

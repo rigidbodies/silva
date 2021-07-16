@@ -24,7 +24,7 @@ public class MenuController : MonoBehaviour
 
     public void OnQuitButtonClick()
     {
-        // quits the game, doesn't happen if opened in unity editor, only closes application if clicked in built version
+        // Quits the game, doesn't happen if opened in unity editor, only closes application if clicked in built version
         PlayerPrefs.DeleteAll();
         Application.Quit();
         Debug.Log("Quit");

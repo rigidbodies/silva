@@ -21,6 +21,7 @@ public class BatController : MonoBehaviour
         // Move bat upwards
         transform.position += new Vector3(horizontalVelocity, verticalVelocity, 0) * Time.deltaTime;
 
+        // Destroy GameObject if above main camera visibility
         if (transform.position.y > 2 * screenHeight)
         {
             Destroy(this.gameObject);

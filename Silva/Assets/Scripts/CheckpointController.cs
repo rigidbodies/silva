@@ -7,35 +7,35 @@ public class CheckpointController : MonoBehaviour
 
     [SerializeField] Sprite checkpointNotReached;
     [SerializeField] Sprite checkpointReached;
+
+    private bool isCheckpointReached = false;
+
     private SpriteRenderer spriteRenderer;
     private AudioSource checkpointSound;
-    public bool isCheckpointReached = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        // Get gameObject components
         spriteRenderer = GetComponent<SpriteRenderer>();
         checkpointSound = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        // Checkpoint is only reached when player collides with it
+        if (collision.tag == "Player")
         {
             if (!isCheckpointReached)
             {
                 checkpointSound.Play();
             }
             isCheckpointReached = true;
-            spriteRenderer.sprite = checkpointReached;
-            
 
+            // Exchange sprite
+            spriteRenderer.sprite = checkpointReached;
         }
     }
 }

@@ -5,17 +5,23 @@ using UnityEngine;
 public class CrystalController : MonoBehaviour
 {
     [SerializeField] private float speed = 10.0f;
+
+    private float screenHeight;
+
     private Rigidbody2D rigidBody;
     private SpriteRenderer render;
     private AudioSource shatteringCrystals;
-    private float screenHeight;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        // Get gameObject components
         rigidBody = transform.GetComponent<Rigidbody2D>();
         render = GetComponent<SpriteRenderer>();
         shatteringCrystals = GetComponent<AudioSource>();
+
+        // Initialise private variables
         rigidBody.velocity = new Vector2(0, -speed);
         screenHeight = Camera.main.orthographicSize;
     }
@@ -23,7 +29,8 @@ public class CrystalController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(- transform.position.y > 2 * screenHeight)
+        // Destroy crystal if below main camera visibility
+        if (- transform.position.y > 2 * screenHeight)
         {
             Destroy(this.gameObject);
         }
@@ -43,7 +50,7 @@ public class CrystalController : MonoBehaviour
 
     IEnumerator FadeOut()
     {
-        //let crystal fade out
+        // Let crystal fade out
         for(float f = 1; f >= 0.0; f -= 0.05f)
         {
             Color c = render.material.color;
@@ -52,7 +59,7 @@ public class CrystalController : MonoBehaviour
             yield return new WaitForSeconds(0.02f);
         }
 
-        //destroy crystal
+        // Destroy crystal
         Destroy(this.gameObject);
     }
 }

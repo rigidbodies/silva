@@ -9,52 +9,56 @@ public class CharacterController2D : MonoBehaviour
 {
 
     [SerializeField] private float jumpForce = 400f;                // Force added when the player jumps
-    [SerializeField] private float movementSpeed = 3f;              // Movement speed of the player
-    float horizontalMove;                                           // Horizontal movement of the player
-    private bool isGrounded;                                        // Whether the player is on the gound and not jumping
+    [SerializeField] private float movementSpeed = 3f;
+    [SerializeField] private Vector3 respawnPosition;
+    [SerializeField] private float leftBoundary = -8.7f;            // Mimimum x value of player
+    [SerializeField] private float rightBoundary = 298f;            // Maximum x value of player
+    [SerializeField] private float bottomBoundary = -5.0f;          // Minimum y value of player
+    [SerializeField] int score = 0;
+    [SerializeField] Text scoreText;
+    [SerializeField] Animator animator;
+
+    public bool canMove = true;                                     // Used for disabling movement while respawning, accessed by other scripts
+
+    private float horizontalMove;                                   // Computed horizontal movement of the player
+    private bool isGrounded;                                        // Check whether the player is on the ground and not jumping
     private bool facingRight = true;                                // Check if player is facing right
     private bool isRespawning = false;                              // Make sure only one life can be lost at a time
-    public bool canMove = true;                                    // Used for disabling movement while respawning
     private int soundPlayed;                                        // Mistake sound cannot be played more than three times
-    [SerializeField] float leftBoundary = -8.7f;                    // Mimimum value of player x
-    [SerializeField] float rightBoundary = 298f;                    // Maximum value of player x
-
-    [SerializeField] Animator animator;
 
     private Rigidbody2D rigidB;
     private SpriteRenderer render;
     private AudioSource playerSound;
 
-    [SerializeField] int score = 0;
-    [SerializeField] Text scoreText;
-
-    [SerializeField] Vector3 respawnPosition;
-    [SerializeField] float bottomBoundary = -5.0f;
-
     private LivesController hearts;
-
     private GameTriggeredMenuController gameOverMenu;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        // Get RigidBody component of the player
+        // Get components of the player
         rigidB = GetComponent<Rigidbody2D>();
         render = GetComponent<SpriteRenderer>();
         playerSound = GetComponent<AudioSource>();
+
+        // Initialise private variables
         scoreText.text = "Score: " + score;
         respawnPosition = this.transform.position;
+        soundPlayed = 0;
+
+        // Get access to other scripts
         hearts = FindObjectOfType<LivesController>();
         gameOverMenu = FindObjectOfType<GameTriggeredMenuController>();
-        soundPlayed = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // If player is unable to move stop movement animation and exit update function
         if (!canMove)
         {
+            animator.SetFloat("Movement Speed", 0f);
             return;  
         }
 
@@ -82,7 +86,7 @@ public class CharacterController2D : MonoBehaviour
             animator.SetBool("IsJumping", true);
         }
 
-        // If the player falls off he'll start the level from scratch
+        // If the player falls off he'll start the level from latest checkpoint
         if (this.transform.position.y < bottomBoundary && !isRespawning)
         {
             Restart();
@@ -96,58 +100,103 @@ public class CharacterController2D : MonoBehaviour
     }
 
 
-    private void FlipPlayerImage()
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        // Switch the way the player is labelled as facing.
-        facingRight = !facingRight;
+        // Make player move with MovingPlatform while on it
+        if (collision.transform.tag == "MovingPlatform")
+        {
+            transform.parent = collision.transform;
+        }
 
-        // Get the x scale property of the player and multiply it by -1 to flip the image
-        Vector3 playerScale = transform.localScale;
-        playerScale.x *= -1;
-        transform.localScale = playerScale;
+        // Interrupt jump animation if the player lands before the animation has finished and set variables accordingly
+        if (collision.gameObject.tag == "Ground" || collision.transform.tag == "MovingPlatform" || collision.gameObject.tag == "Ceiling")
+        {
+            isGrounded = true;
+            animator.SetBool("IsJumping", false);
+        }
+
+        // Restart if player is hit by an obstacle
+        if (collision.transform.tag == "Crystal" || collision.transform.tag == "Plant" || collision.transform.tag == "Enemy")
+        {
+            StartCoroutine(Blink(3));
+        }
     }
+
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        // Make player move on his own when leaving MovingPlatform
+        if (collision.transform.tag == "MovingPlatform")
+        {
+            transform.parent = null;
+        }
+
+        // The player is not grounded anymore if there is no collision with the tiles
+        if (collision.gameObject.tag == "Ground" || collision.transform.tag == "MovingPlatform" || collision.gameObject.tag == "Ceiling")
+        {
+            isGrounded = false;
+        }
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Sets the respawn position to the position of the checkpoint colliding with the player
+        if (collision.gameObject.tag == "Checkpoint")
+        {
+            respawnPosition = collision.transform.position;
+        }
+
+        // Make player blink if hit by a fireball
+        if (collision.gameObject.tag == "Fireball")
+        {
+            StartCoroutine(Blink(3));
+        }
+    }
+
 
     private void Restart()
     {
         StartCoroutine(RespawnDelay());
     }
 
+
     IEnumerator RespawnDelay()
     {
         isRespawning = true;
         canMove = false;
-        soundPlayed++;
 
-        //play mistake sound
-        if (!playerSound.isPlaying && soundPlayed<=3)
+        // Play mistake sound
+        if (!playerSound.isPlaying && soundPlayed<3)
         {
+            soundPlayed++;
             playerSound.Play();
         }
 
-        // if the restart method is called it means that the player has lost a life
+        // If the restart method is called it means that the player has lost a life
         hearts.Lose1Life();
 
-        // if no life is left the scene is reloaded so that all values (score, lives, collected booksm checkpoints) are resetted
-        if (hearts.Lives < 1)
+        // If no life is left the scene is reloaded so that all values (score, lives, collected books, checkpoints) are resetted
+        if (hearts.lives < 1)
         {
-            //wait until sound has played
+            // Wait until sound has played
             yield return new WaitForSeconds(1.9f);
-            //gameOver screen
+            // GameOver screen
             gameOverMenu.DisplayMenu("gameOverMenu");
         }
         else
         {
-            //make player image disappear
+            // Make player image disappear
             render.enabled = false;
-            //reposition player
+            // Reposition player
             this.transform.position = respawnPosition;
 
-            //wait until sound has played
+            // Wait until sound has played
             yield return new WaitForSeconds(1.9f);
-            //make player image reappear
+            // Make player image reappear
             render.enabled = true;
 
-            //make sure he starts off again facing right
+            // Make sure he starts off again facing right
             if (!facingRight)
             {
                 FlipPlayerImage();
@@ -159,83 +208,21 @@ public class CharacterController2D : MonoBehaviour
         isRespawning = false;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        // Make player move with MovingPlatform while on it
-        if(collision.transform.tag == "MovingPlatform")
-        {
-            transform.parent = collision.transform;
-        }
-
-        // Interrupt jump animation if Player lands before the animation has finished and set variables accordingly
-        if (collision.gameObject.tag == "Ground" || collision.transform.tag == "MovingPlatform" || collision.gameObject.tag == "Ceiling")
-        {
-            isGrounded = true;
-            animator.SetBool("IsJumping", false);
-        }
-
-        // Restart if player is hit by a crystal
-        if(collision.transform.tag == "Crystal" || collision.transform.tag == "Plant" || collision.transform.tag == "Enemy")
-        {
-            StartCoroutine(Blink(3));            
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        // Make player move on his own when leaving MovingPlatform
-        if (collision.transform.tag == "MovingPlatform")
-        {
-            transform.parent = null;  
-        }
-
-        // The player is not grounded anymore if there is no collision with the ground
-        if (collision.gameObject.tag == "Ground" || collision.transform.tag == "MovingPlatform" || collision.gameObject.tag == "Ceiling")
-        {
-            isGrounded = false;
-        }
-    }
-
-    // Sets the respawn position to the position of the checkpoint colliding with the player
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Checkpoint")
-        {
-            respawnPosition = collision.transform.position;
-        }
-
-        if (collision.gameObject.tag == "Fireball")
-        {
-            StartCoroutine(Blink(3));
-        }
-    }
-
-
-    // Increase score and set text to the new score value
-    public void IncreaseScore(int value)
-    {
-        score += value;
-        scoreText.text = "Score: " + score;
-    }
-
-    public int GetScore()
-    {
-        return score;
-    }
 
     IEnumerator Blink(int reps)
     {
-        //Diasable player movement
+        // Diasable player movement
         canMove = false;
 
         // Play mistake sound
         if (!playerSound.isPlaying)
         {
+            soundPlayed++;
             playerSound.Play();
         }
 
         // Make player blink
-        for(int i = 0; i<reps; i++)
+        for (int i = 0; i < reps; i++)
         {
             Color c = render.material.color;
             c.a = 0.1f;
@@ -251,5 +238,31 @@ public class CharacterController2D : MonoBehaviour
         {
             Restart();
         }
+    }
+
+
+    private void FlipPlayerImage()
+    {
+        // Switch the way the player is labelled as facing
+        facingRight = !facingRight;
+
+        // Get the x scale property of the player and multiply it by -1 to flip the image
+        Vector3 playerScale = transform.localScale;
+        playerScale.x *= -1;
+        transform.localScale = playerScale;
+    }
+
+
+    // Increase score and set text to the new score value
+    public void IncreaseScore(int value)
+    {
+        score += value;
+        scoreText.text = "Score: " + score;
+    }
+
+
+    public int GetScore()
+    {
+        return score;
     }
 }

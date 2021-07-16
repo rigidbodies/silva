@@ -6,19 +6,19 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] GameObject enemy;
     [SerializeField] float speed = 3;
-    [SerializeField] Transform[] points;                    // enemy moves between 2 points
+    [SerializeField] Transform[] points;                    // Enemy moves between 2 points
 
     [SerializeField] float attackTime = 3.0f;
     [SerializeField] Transform fireballSpanwPos;
     [SerializeField] GameObject fireball;
-    [SerializeField] float fireballOffset = 1f;             // distance between the enemy and the spawn position of the fireball
-    [SerializeField] float attackDelay = 2.0f;              // time to wait before instantiating fireball
+    [SerializeField] float fireballOffset = 1f;             // Distance between the enemy and the spawn position of the fireball
+    [SerializeField] float attackDelay = 2.0f;              // Time to wait before instantiating fireball
 
-    private int destinationIndex = 0;                       //points to the index of the current destination in the points array
-    private bool facingLeft = true;
+    private int destinationIndex = 0;                       // Points to the index of the current destination in the points array
+    private bool facingLeft = true;                         // Check if enemy is facing left
     private float timeCounter = 0.0f;
-    private Transform currentDestination;
 
+    private Transform currentDestination;
     private Animator animator;
     
 
@@ -27,19 +27,23 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         currentDestination = points[destinationIndex];
+
+        // Add random value to attackTime to give each enemy its individual attackTime
         attackTime += Random.Range(0.0f, 1.0f);
+
+        // Get animator component of the enemy
         animator = enemy.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // if the enemy is facing left but the next destination is right of the player
-        // or if the enemy is facing right but the next destination is left from the player
+        // If the enemy is facing left but the next destination is right of the player
+        // Or if the enemy is facing right but the next destination is left from the player
         if (facingLeft && currentDestination.position.x > enemy.transform.position.x
             || !facingLeft && currentDestination.position.x < enemy.transform.position.x)
         {
-            FlipPlayerImage();
+            FlipEnemyImage();
         }
 
         enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, currentDestination.position, Time.deltaTime * speed);
@@ -47,9 +51,9 @@ public class EnemyController : MonoBehaviour
 
         if (enemy.transform.position == currentDestination.position)
         {
-            //next destination index
+            // Next destination index
             destinationIndex = (destinationIndex + 1) % points.Length;
-            //update current destination
+            // Update current destination
             currentDestination = points[destinationIndex];
         }
 
@@ -58,7 +62,7 @@ public class EnemyController : MonoBehaviour
         if (timeCounter >= attackTime)
         {
             animator.SetBool("AttackTime", true);
-            //reset timeCounter
+            // Reset timeCounter
             timeCounter = 0.0f;
 
             StartCoroutine(Attack());
@@ -68,32 +72,42 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Make enemy move with MovingPlatform while on it
+        if (collision.transform.tag == "MovingPlatform")
+        {
+            transform.parent = collision.transform;
+        }
+    }
+
+
     public IEnumerator Attack()
     {
-        // wait for some time so that the fireball is created at the end of the attacking animation and not immediately
+        // Wait for some time so that the fireball is created at the end of the attacking animation and not immediately
         yield return new WaitForSeconds(attackDelay);
 
-        //Instantiate fireball
+        // Instantiate fireball
         Fireball ball = Fireball.Instantiate(fireball, fireballSpanwPos.position, fireballSpanwPos.rotation).GetComponent<Fireball>();
 
-        // if the enemy is facing left, the fireball should move left too
+        // If the enemy is facing left, the fireball should move left too
         if (facingLeft)
         {
             ball.direction = -1;
-            // let fireball appear a bit more left than the enemy
+            // Let fireball appear a bit more left than the enemy
             ball.transform.position += new Vector3(-fireballOffset, 0, 0);
         }
-        // if the player is facing right, the fireball shoud move right too
+        // If the player is facing right, the fireball shoud move right too
         else
         {
             ball.direction = 1;
-            // let fireball appear a bit more right than the enemy
+            // Let fireball appear a bit more right than the enemy
             ball.transform.position += new Vector3(fireballOffset, 0, 0);
         }
     }
 
 
-    private void FlipPlayerImage()
+    private void FlipEnemyImage()
     {
         // Switch the way the player is labelled as facing.
         facingLeft = !facingLeft;
@@ -102,14 +116,5 @@ public class EnemyController : MonoBehaviour
         Vector3 enemyScale = enemy.transform.localScale;
         enemyScale.x *= -1;
         enemy.transform.localScale = enemyScale;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // Make enemy move with MovingPlatform while on it
-        if (collision.transform.tag == "MovingPlatform")
-        {
-            transform.parent = collision.transform;
-        }
     }
 }

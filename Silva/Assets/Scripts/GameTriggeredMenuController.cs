@@ -38,7 +38,7 @@ public class GameTriggeredMenuController : MonoBehaviour
         playerScript.canMove = false;
 
         // Display menu depending on parameter
-        if (menuName == "gameOverMenu") //gameOverMenu
+        if (menuName == "gameOverMenu") // gameOverMenu
         {
             // Adjust gameOverScoreText
             gameOverScoreText.text = "SCORE: " + playerScript.GetScore();
@@ -46,7 +46,7 @@ public class GameTriggeredMenuController : MonoBehaviour
             gameOverMenu.SetActive(true);
         }
 
-        else if (menuName == "levelCompletedMenu") //levelCompletedMenu
+        else if (menuName == "levelCompletedMenu") // levelCompletedMenu
         {
             // Adjust levelCompletedScoreText
             levelScoreText.text = "SCORE: " + playerScript.GetScore();
@@ -54,7 +54,7 @@ public class GameTriggeredMenuController : MonoBehaviour
             levelCompletedMenu.SetActive(true);
         }
 
-        else //invalid input
+        else // Invalid input
         {
             return;
         }
@@ -73,11 +73,5 @@ public class GameTriggeredMenuController : MonoBehaviour
     public void OnStartMenuButtonClick()
     {
         SceneManager.LoadScene("MainMenu");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

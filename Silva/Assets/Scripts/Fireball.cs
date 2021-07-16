@@ -5,24 +5,24 @@ using UnityEngine;
 public class Fireball : MonoBehaviour
 {
 
-    [SerializeField] float speed;              // width of fireball curve
-    [SerializeField] private float amplitude;  // height of fireball curve
-    public int direction { get; set; }      // direction of fireball movement (1 for right, -1 for left)
-    private float screenWidth;
-    private float cameraRange;
-
-    private Rigidbody2D rigidB;
-    private SpriteRenderer spriteRenderer;
+    [SerializeField] float speed;                       // Width of fireball curve
+    [SerializeField] private float amplitude;           // Height of fireball curve
     [SerializeField] AudioSource creationSound;
     [SerializeField] AudioSource landingSound;
+    public int direction { get; set; }                  // Direction of fireball movement (1 for right, -1 for left)
+
+    private float screenWidth;
+    private Rigidbody2D rigidB;
+    private SpriteRenderer spriteRenderer;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        // get width of the screen
+        // Get width of the screen
         screenWidth = Camera.main.orthographicSize * Camera.main.aspect;
 
-        // get components
+        // Get components
         rigidB = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -32,8 +32,20 @@ public class Fireball : MonoBehaviour
         creationSound.Play();
     }
 
-    
-    // destroy fireball if player is hit
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        // If fireball is not visible on the screen anymore, destroy fireball
+        if (transform.position.x > screenWidth * 1.5 + Camera.main.transform.position.x
+            || transform.position.x < -screenWidth * 1.5 + Camera.main.transform.position.x)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Make fireball move with MovingPlatform when landing on it
@@ -47,6 +59,7 @@ public class Fireball : MonoBehaviour
             // Stop moving
             rigidB.velocity = new Vector2(0, 0);
             rigidB.gravityScale = 0;
+            // Make fireball fade out
             StartCoroutine(FadeOut());
         }
     }
@@ -55,7 +68,7 @@ public class Fireball : MonoBehaviour
     {
         landingSound.Play();
 
-        //let fireball fade out
+        // Let fireball fade out
         for (float f = 1; f >= 0.0; f -= 0.05f)
         {
             Color c = spriteRenderer.material.color;
@@ -64,22 +77,7 @@ public class Fireball : MonoBehaviour
             yield return new WaitForSeconds(0.02f);
         }
 
-        //destroy fireball
+        // Destroy fireball
         Destroy(this.gameObject);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // get actual range of camera-x value
-        //cameraRange = screenWidth + Camera.main.transform.position.x;
-
-        // if fireball is not visible on the screen anymore, destroy fireball
-        if (transform.position.x > screenWidth * 1.5 + Camera.main.transform.position.x 
-            || transform.position.x < -screenWidth * 1.5 + Camera.main.transform.position.x)
-        {
-            //this.transform.position = startingPosition;
-            Destroy(gameObject);
-        }
     }
 }

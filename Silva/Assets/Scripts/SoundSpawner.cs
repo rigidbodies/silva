@@ -13,10 +13,13 @@ public class SoundSpawner : MonoBehaviour
     private AudioSource extraPointSound;
     private CharacterController2D character;
 
+
     // Start is called before the first frame update
     void Start()
     {
+        // Get AudioSource component of gameObject
         extraPointSound = GetComponent<AudioSource>();
+        // Get access to CharacterController2D script
         character = FindObjectOfType<CharacterController2D>();
 
         // Make sure spawnTime isn't shorter than audio clip
@@ -25,7 +28,7 @@ public class SoundSpawner : MonoBehaviour
             spawnTime = 3.5f;
         }
 
-        //Randomise spawnTime
+        // Randomise spawnTime
         spawnTime += Random.Range(0.0f,3.0f);
     }
 
@@ -36,7 +39,9 @@ public class SoundSpawner : MonoBehaviour
 
         if(timeCounter >= spawnTime)
         {
+            // Reset timeCounter
             timeCounter = 0;
+
             if (!extraPointSound.isPlaying)
             {
                 pointsCollected = false;
@@ -48,7 +53,9 @@ public class SoundSpawner : MonoBehaviour
 
         if(extraPointSound.isPlaying && enterPressed && !pointsCollected)
         {
+            // Points can be collected once per sound spawn
             pointsCollected = true;
+            // Add collected points to player score
             character.IncreaseScore(scoreValue);
         }
     }

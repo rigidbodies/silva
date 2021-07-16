@@ -13,6 +13,7 @@ public class InitialSoundController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Set volume of each mixer according to volume slider value
         for(int i=0; i<sliders.Count; i++)
         {
             float audioVolume = PlayerPrefs.GetFloat(volumeParameters[i], sliders[i].value);
