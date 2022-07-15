@@ -42,3 +42,8 @@ sysinfo.txt
 # Crashlytics generated file
 Assets/StreamingAssets/crashlytics-build.properties
 
+### Operating systems ###
+# MacOS:
+*.DS_Store
+
+
