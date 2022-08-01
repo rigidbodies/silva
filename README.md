@@ -29,7 +29,7 @@ Unity3D: https://unity.com/de
 - Fireball landing: https://freesound.org/people/HighPixel/sounds/431174/
 - Extra points collected: https://freesound.org/people/danarobinsondesignsgmailcom/sounds/377639/
 
-## Images:
+## Images and intro video:
 - Nataliia Daliba
 - Juliana Wiest
 
